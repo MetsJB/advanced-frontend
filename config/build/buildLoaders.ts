@@ -3,6 +3,31 @@ import webpack from "webpack";
 import { BuildOptions } from "./types/config";
 
 export function buildoadres(options: BuildOptions): webpack.RuleSetRule[] {
+  const svgloader = {
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  };
+
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-env"],
+        plugins: [
+          [
+            "i18next-extract",
+            {
+              locales: ["ru", "en"],
+              keyAsDefaultValue: true,
+            },
+          ],
+        ],
+      },
+    },
+  };
+
   const cssLoaders = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -28,5 +53,15 @@ export function buildoadres(options: BuildOptions): webpack.RuleSetRule[] {
     exclude: /node_modules/,
   };
 
-  return [typescriptLoader, cssLoaders];
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/,
+    use: [
+      {
+        loader: "file-loader",
+        options: {},
+      },
+    ],
+  };
+
+  return [babelLoader, fileLoader, svgloader, typescriptLoader, cssLoaders];
 }

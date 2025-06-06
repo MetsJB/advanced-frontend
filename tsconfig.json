@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,  
+    "skipLibCheck": true,
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "esnext",
@@ -10,6 +10,13 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"],
+    
+    },
+    
+
     // "types": [],
   },
   "ts-node": {
