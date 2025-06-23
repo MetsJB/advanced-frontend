@@ -19,7 +19,7 @@ export function buildWebpackConfig(
       clean: true,
     },
     module: {
-      rules: buildoadres(options),
+      rules: buildoadres(isDev),
     },
     plugins: buildPlugins(options),
     resolve: buildResolvers(options),
