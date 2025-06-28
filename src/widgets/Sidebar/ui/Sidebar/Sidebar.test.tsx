@@ -5,6 +5,8 @@ import { renderWithTranslation } from "../../../../shared/lib/tests/renderWithTr
 
 describe("sidebar", () => {
   test("with only first param", () => {
+    // const SidebarWithtranslation = withTranslation()(Sidebar)
+    // render(<SidebarWithtranslation />);
     renderWithTranslation(<Sidebar />);
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
   });
