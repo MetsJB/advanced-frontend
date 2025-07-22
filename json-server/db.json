@@ -13,7 +13,7 @@
     {
       "id": 1,
       "username": "admin",
-      "password": 123
+      "password": "123"
     }
   ],
   "profile": {
