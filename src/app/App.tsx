@@ -9,8 +9,9 @@ import { useDispatch } from "react-redux";
 import { userActions } from "entites/User";
 
 const App = () => {
-  const { theme } = useTheme();
+  const { theme,  } = useTheme();
   const dispatch = useDispatch()
+  
 
   useEffect(()=> {
     dispatch(userActions.initAuthdata())
