@@ -4,16 +4,20 @@ import { User, userActions } from "entites/User";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localStorage";
 import { Profile } from "../../types/profile";
 import { ThunkExtraArg } from "app/providers/StoreProvider/config/stateSchema";
+import { getProfileForm } from "../../selectors/getProfileForm/getProfileForm";
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
-  "profile/fetchProfileData",
+export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+  "profile/updateProfileData",
   async (_, thunkAPI) => {
-    const { extra, rejectWithValue } = thunkAPI;
+    const { extra, rejectWithValue, getState } = thunkAPI;
+
+    const formData = getProfileForm(getState())
 
     try {
-      const response = await extra.api.get<Profile>("/profile");
+      const response = await extra.api.put<Profile>("/profile", formData);
       return response.data;
     } catch (error) {
+      console.log(error);
       return rejectWithValue("error");
     }
   }

@@ -6,6 +6,8 @@ import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import MainIcon from "shared/assets/icons/main-20-20.svg";
 import { SidebarItemType } from "../../model/items";
 import { memo } from "react";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "entites/User";
 
 interface SidebarItemProps {
   item: SidebarItemType;
@@ -14,6 +16,11 @@ interface SidebarItemProps {
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation();
+  const isAuth = useSelector(getUserAuthData);
+
+  if (item.authOnly && !isAuth) {
+    return null;
+  }
 
   return (
     <AppLink
