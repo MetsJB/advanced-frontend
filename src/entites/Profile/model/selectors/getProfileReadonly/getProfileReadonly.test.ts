@@ -1,0 +1,21 @@
+import { StateScheme } from "app/providers/StoreProvider";
+import { getProfileReadonly } from "./getProfileReadonly";
+import { Currency } from "entites/Currency";
+import { Country } from "entites/Country";
+
+describe("getProfileReadonly.test", () => {
+  test("should return true", () => {
+    const state: DeepPartial<StateScheme> = {
+      profile: {
+        readonly:true
+      },
+    };
+
+    expect(getProfileReadonly(state as StateScheme)).toBe(true);
+  });
+  test("should work with empty state", () => {
+    const state: DeepPartial<StateScheme> = {};
+
+    expect(getProfileReadonly(state as StateScheme)).toBe(undefined);
+  });
+});
