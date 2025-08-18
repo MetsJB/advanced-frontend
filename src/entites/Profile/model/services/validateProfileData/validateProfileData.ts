@@ -9,11 +9,13 @@ export const validateProfileData = (profile?: Profile) => {
 
   const errors: ValidateProfileError[] = [];
 
+  const phoneNumberRegExp = /^(90|[1-9][0-9]?)$/;
+
   if (!first || !lastname) {
     errors.push(ValidateProfileError.INCORRECT_USER_DATA);
   }
 
-  if (!age || !Number.isInteger(age)) {
+  if (!age || !Number.isInteger(age) || !phoneNumberRegExp.test(age.toString())) {
     errors.push(ValidateProfileError.INCORRECT_AGE);
   }
 
