@@ -106,12 +106,14 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
       "id": "2",
       "username": "user",
-      "password": "234"
+      "password": "234",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
   "profile": {
