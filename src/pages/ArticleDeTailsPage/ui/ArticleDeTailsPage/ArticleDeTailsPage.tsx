@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import cls from "./ArticleDeTailsPage.module.scss";
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { ArticleDetails } from "entites/Article";
 import { Text } from "shared/ui/Text/Text";
@@ -18,6 +18,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { fetchCommentsByArticleById } from "pages/ArticleDeTailsPage/model/services/fetchCommentsByArticleById/fetchCommentsByArticleById";
+import { AddCommentForm } from "features/addCommentForm";
+import { addCommentForArticle } from "pages/ArticleDeTailsPage/model/services/addCommentForArticle/addCommentForArticle";
 
 interface ArticleDeTailsPageProps {
   className?: string;
@@ -30,10 +32,16 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useDispatch();
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleById(id));
   });
-  
 
   if (!id) {
     return (
@@ -52,6 +60,7 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
       <div className={classNames(cls.ArticleDeTailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text title={t("Комментарии")} className={cls.commentTitle} />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

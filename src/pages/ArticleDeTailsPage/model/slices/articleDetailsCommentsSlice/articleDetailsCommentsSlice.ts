@@ -9,7 +9,7 @@ import { Comment } from "entites/Comment";
 import { ArticelDetailsCommentsSchema } from "../../types/ArticelDetailsCommentsSchema";
 import { fetchCommentsByArticleById } from "../../services/fetchCommentsByArticleById/fetchCommentsByArticleById";
 
-const commentsAdapter = createEntityAdapter<Comment>({ 
+const commentsAdapter = createEntityAdapter<Comment>({
   selectId: (comment) => comment.id,
 });
 
@@ -50,3 +50,5 @@ export const { reducer: articleDetailsCommentsReducer } =
   articleDetailsCommentsSlice;
 export const { actions: articleDetailsCommentsActions } =
   articleDetailsCommentsSlice;
+
+  

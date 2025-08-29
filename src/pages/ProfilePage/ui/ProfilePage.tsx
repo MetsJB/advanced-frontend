@@ -26,6 +26,8 @@ import { fromPairs } from "lodash";
 import { Currency } from "entites/Currency";
 import { Country } from "entites/Country";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { useParams } from "react-router-dom";
 
 interface ProfilePageProps {
   className?: string;
@@ -43,12 +45,13 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const { id } = useParams<{ id: string }>();
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
 
   const validateErrorTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t("Серверная ошибка"),
