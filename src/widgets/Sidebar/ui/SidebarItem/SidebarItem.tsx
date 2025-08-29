@@ -4,7 +4,7 @@ import cls from "./SidebarItem.module.scss";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import MainIcon from "shared/assets/icons/main-20-20.svg";
-import { SidebarItemType } from "../../model/items";
+import { SidebarItemType } from "../../model/types/sidebar";
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "entites/User";

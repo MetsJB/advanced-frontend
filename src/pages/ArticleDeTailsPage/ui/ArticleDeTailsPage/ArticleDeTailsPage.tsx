@@ -19,7 +19,7 @@ import { getArticleCommentsIsLoading } from "../../model/selectors/comments";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { fetchCommentsByArticleById } from "pages/ArticleDeTailsPage/model/services/fetchCommentsByArticleById/fetchCommentsByArticleById";
 import { AddCommentForm } from "features/addCommentForm";
-import { addCommentForArticle } from "pages/ArticleDeTailsPage/model/services/addCommentForArticle/addCommentForArticle";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 
 interface ArticleDeTailsPageProps {
   className?: string;
