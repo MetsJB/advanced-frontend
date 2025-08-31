@@ -31,6 +31,10 @@ const article: Article = {
   views: 1022,
   createdAt: "26.02.2022",
   type: [ArticleType.IT],
+  user: {
+    id: "1",
+    username: "Zahar",
+  },
   blocks: [
     {
       id: "1",
@@ -108,7 +112,7 @@ IsLoading.args = {};
 IsLoading.decorators = [
   StoreDecorator({
     articleDetails: {
-      isLoading: true
+      isLoading: true,
     },
   }),
 ];
@@ -118,7 +122,7 @@ Error.args = {};
 Error.decorators = [
   StoreDecorator({
     articleDetails: {
-      error: 'error'
+      error: "error",
     },
   }),
-]; 
+];
