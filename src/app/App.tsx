@@ -20,6 +20,7 @@ const App = () => {
         <Navbar />
         <div className="content-page">
           <Sidebar />
+          'Это изменнения для проверки гитхаб'
           {inited && <AppRouter />}
         </div>
       </Suspense>
