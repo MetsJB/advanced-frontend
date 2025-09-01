@@ -34,7 +34,7 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  
   const onBackToList = useCallback(() => {
     navigate(RoutePath.articles);
   }, [navigate]);
