@@ -2,8 +2,12 @@ import { EntityState } from "@reduxjs/toolkit";
 import { Article, ArticleView } from "entites/Article";
 
 export interface ArticlePageSchema extends EntityState<Article> {
-    isLoading?: boolean
-    error?: string
+  isLoading?: boolean;
+  error?: string;
 
-    view: ArticleView
+  view: ArticleView;
+  //pagination
+  page: number;
+  limit?: number;
+  hasMore: boolean;
 }
