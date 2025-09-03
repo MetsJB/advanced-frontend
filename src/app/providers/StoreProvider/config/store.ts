@@ -10,16 +10,17 @@ import { counterReducer } from "entites/Counter";
 import { userReducer } from "entites/User";
 import { createReducerManager } from "./reducerManager";
 import { $api } from "shared/api/api";
-import { NavigateOptions, To } from "react-router-dom";
+import { uiReducer } from "features/UI";
 
 export function createReduxStore(
   initialState?: StateScheme,
   asyncReducers?: ReducersMapObject<StateScheme>
 ) {
-  const rootReducers: ReducersMapObject = {
+  const rootReducers: ReducersMapObject<StateScheme> = {
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    ui: uiReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);

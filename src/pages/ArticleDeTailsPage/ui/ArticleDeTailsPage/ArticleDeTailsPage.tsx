@@ -22,7 +22,7 @@ import { AddCommentForm } from "features/addCommentForm";
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 
 interface ArticleDeTailsPageProps {
   className?: string;
@@ -35,7 +35,7 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const onBackToList = useCallback(() => {
     navigate(RoutePath.articles);
   }, [navigate]);
