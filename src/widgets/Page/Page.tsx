@@ -43,7 +43,7 @@ export const Page = memo((props: PageProps) => {
         path: pathname,
       })
     );
-  }, 500)
+  }, 500);
 
   return (
     <section
@@ -52,7 +52,7 @@ export const Page = memo((props: PageProps) => {
       className={classNames(cls.Page, {}, [className])}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
     </section>
   );
 });

@@ -27,6 +27,8 @@ import {
 import { Page } from "widgets/Page/Page";
 import { fetchNextArticlePage } from "../../model/services/fetchNextArticlePage/fetchNextArticlePage";
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
+import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
+import { useSearchParams } from "react-router-dom";
 
 interface ArticlesPageProps {
   className?: string;
@@ -42,21 +44,17 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlePageIsLoading);
   const view = useSelector(getArticlePageView);
   const articles = useSelector(getArticles.selectAll);
+  let [searchParams] = useSearchParams();
 
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
+
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
-  });
+    dispatch(initArticlesPage(searchParams));
+  })
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
@@ -64,8 +62,13 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         onScrollEnd={onLoadNextPart}
         className={classNames(cls.ArticlesPage, {}, [className])}
       >
-        <ArticleViewSelector view={view} onViewClick={onChangeView} />
-        <ArticleList isLoading={isLoading} view={view} articles={articles} />
+        <ArticlesPageFilters />
+        <ArticleList
+          className={cls.list}
+          isLoading={isLoading}
+          view={view}
+          articles={articles}
+        />
       </Page>
     </DynamicModuleLoader>
   );
