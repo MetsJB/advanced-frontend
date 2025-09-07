@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import cls from "./ArticleDeTailsPage.module.scss";
 import { memo, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArticleDetails } from "entites/Article";
-import { Text } from "shared/ui/Text/Text";
+import { ArticleDetails, ArticleList } from "entites/Article";
+import { Text, TextSize } from "shared/ui/Text/Text";
 import { CommentList } from "entites/Comment";
 import {
   DynamicModuleLoader,
@@ -23,6 +23,13 @@ import { addCommentForArticle } from "../../model/services/addCommentForArticle/
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { Page } from "widgets/Page/Page";
+import {
+  articleDetailsPageRecommendationsReducer,
+  getArticleRecommendations,
+} from "../../model/slices/articleDetailsPageRecommendationsSlice/articleDetailsPageRecommendationsSlice";
+import { getArticleRecommendationsIsLoading } from "../../model/selectors/recommendations";
+import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
+import { articleDetailsPageReducer } from "../../model/slices";
 
 interface ArticleDeTailsPageProps {
   className?: string;
@@ -32,6 +39,10 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const comments = useSelector(getArticleComments.selectAll);
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const recommendationsIsLoading = useSelector(
+    getArticleRecommendationsIsLoading
+  );
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -49,6 +60,7 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleById(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   if (!id) {
@@ -60,7 +72,7 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
   }
 
   const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
   };
 
   return (
@@ -70,7 +82,22 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
           {t("Назад к списку ")}
         </Button>
         <ArticleDetails id={id} />
-        <Text title={t("Комментарии")} className={cls.commentTitle} />
+        <Text
+          size={TextSize.L}
+          title={t("Рекомендуем")}
+          className={cls.commentTitle}
+        />
+        <ArticleList
+          target="_blank"
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          className={cls.recommendations}
+        />
+        <Text
+          size={TextSize.L} 
+          title={t("Комментарии")}
+          className={cls.commentTitle}
+        />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </Page>

@@ -3,7 +3,7 @@ import { ThunkConfig } from "app/providers/StoreProvider";
 import { getArticlePageInited } from "../../selectors/articlePageSelectors";
 import { articlesPageActions } from "../../slices/articlesPageSlice";
 import { fetchArticleList } from "../fetchArticleList/fetchArticleList";
-import { ArticleSortField } from "entites/Article";
+import { ArticleSortField, ArticleType } from "entites/Article";
 import { SortOrder } from "shared/types";
 
 export const initArticlesPage = createAsyncThunk<
@@ -15,20 +15,25 @@ export const initArticlesPage = createAsyncThunk<
   const inited = getArticlePageInited(getState());
 
   if (!inited) {
-    const orderFromUrl = searchParams.get('order') as SortOrder
-    const sortFromUrl = searchParams.get('sort') as ArticleSortField
-    const searchFromUrl = searchParams.get('search')
+    const orderFromUrl = searchParams.get("order") as SortOrder;
+    const sortFromUrl = searchParams.get("sort") as ArticleSortField;
+    const searchFromUrl = searchParams.get("search");
+    const typeFromUrl = searchParams.get("type") as ArticleType;
+
+    if (typeFromUrl) {
+      dispatch(articlesPageActions.setType(typeFromUrl));
+    }
 
     if (orderFromUrl) {
-      dispatch(articlesPageActions.setOrder(orderFromUrl))
+      dispatch(articlesPageActions.setOrder(orderFromUrl));
     }
 
     if (sortFromUrl) {
-      dispatch(articlesPageActions.setSort(sortFromUrl))
+      dispatch(articlesPageActions.setSort(sortFromUrl));
     }
 
     if (searchFromUrl) {
-      dispatch(articlesPageActions.setSearch(searchFromUrl))
+      dispatch(articlesPageActions.setSearch(searchFromUrl));
     }
 
     dispatch(articlesPageActions.initState());

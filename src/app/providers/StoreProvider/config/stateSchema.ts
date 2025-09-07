@@ -13,7 +13,7 @@ import { UserSchema } from "entites/User";
 import { addCommentFormSchema } from "features/addCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
 import { UIShema } from "features/UI";
-import { ArticelDetailsCommentsSchema } from "pages/ArticleDeTailsPage";
+import { ArticelDetailsCommentsSchema, ArticleDetailsPageSchema, ArticleDetailsRecommendationsSchema } from "pages/ArticleDeTailsPage";
 import { ArticlePageSchema } from "pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
 
@@ -26,9 +26,9 @@ export interface StateScheme {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticelDetailsCommentsSchema;
   addCommentForm?: addCommentFormSchema;
   articlePage?: ArticlePageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema 
 }
 
 export type StateSchemaKey = keyof StateScheme;
