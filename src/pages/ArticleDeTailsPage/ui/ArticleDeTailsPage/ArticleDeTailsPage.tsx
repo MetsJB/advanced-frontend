@@ -30,6 +30,7 @@ import {
 import { getArticleRecommendationsIsLoading } from "../../model/selectors/recommendations";
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { articleDetailsPageReducer } from "../../model/slices";
+import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 
 interface ArticleDeTailsPageProps {
   className?: string;
@@ -45,11 +46,6 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
   );
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -78,9 +74,7 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDeTailsPage, {}, [className])}>
-        <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-          {t("Назад к списку ")}
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text
           size={TextSize.L}
@@ -88,13 +82,13 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
           className={cls.commentTitle}
         />
         <ArticleList
-          target="_blank"
+          target={"_blank"}
           articles={recommendations}
           isLoading={recommendationsIsLoading}
           className={cls.recommendations}
         />
         <Text
-          size={TextSize.L} 
+          size={TextSize.L}
           title={t("Комментарии")}
           className={cls.commentTitle}
         />
