@@ -1,6 +1,6 @@
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./Flex.module.scss";
-import { ReactNode } from "react";
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 
 export type FlexJustify = "start" | "center" | "between" | "end";
 export type FlexAlign = "start" | "center" | "end";
@@ -32,7 +32,12 @@ const justifyClasses: Record<FlexJustify, string> = {
   between: cls.justifyBetween,
 };
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
+export interface FlexProps extends DivProps {
   className?: string;
   children: ReactNode;
   justify?: FlexJustify;
