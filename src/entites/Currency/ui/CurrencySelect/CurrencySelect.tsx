@@ -4,12 +4,13 @@ import cls from "./CurrencySelect.module.scss";
 import { Select } from "shared/ui/Select/Select";
 import { Currency } from "../../model/type/currency";
 import { memo, useCallback } from "react";
+import { ListBox } from "shared/ui/ListBox/ListBox";
 
 interface CurrencySelectProps {
   className?: string;
   value?: Currency;
   onChange?: (value: Currency) => void;
-  readonly?: boolean
+  readonly?: boolean;
 }
 
 const options = [
@@ -30,13 +31,15 @@ export const CurrencySelect = memo(
     );
 
     return (
-      <Select
-        className={classNames("", {}, [className])}
-        label={t("Укажите валюту")}
-        options={options}
+      <ListBox
+        className={className}
         value={value}
+        defaultValue={t("Укажите валюту")}
+        items={options}
         onChange={onChangeHandler}
-        readonly = {readonly}
+        readonly={readonly}
+        direction="top"
+        label={t("Укажите валюту")}
       />
     );
   }

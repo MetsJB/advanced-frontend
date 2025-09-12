@@ -4,12 +4,13 @@ import cls from "./CountrySelect.module.scss";
 import { Select } from "shared/ui/Select/Select";
 import { memo, useCallback } from "react";
 import { Country } from "entites/Country/model/types/country";
+import { ListBox } from "shared/ui/ListBox/ListBox";
 
 interface CountrySelectProps {
   className?: string;
   value?: Country;
   onChange?: (value: Country) => void;
-  readonly?: boolean
+  readonly?: boolean;
 }
 
 const options = [
@@ -31,15 +32,27 @@ export const CountrySelect = memo(
     );
 
     return (
-      <Select
-        className={classNames("", {}, [className])}
-        label={t("Укажите страну")}
-        options={options}
-        value={value}
+      <ListBox
         onChange={onChangeHandler}
-        readonly = {readonly}
+        className={className}
+        defaultValue={t("Укажите страну")}
+        items={options}
+        readonly={readonly}
+        value={value}
+        direction="top"
+        label={t("Укажите страну")}
       />
     );
+
+    // return (
+    //   <Select
+    //     className={classNames("", {}, [className])}
+    //     label={t("Укажите страну")}
+    //     options={options}
+    //     value={value}
+    //     onChange={onChangeHandler}
+    //     readonly={readonly}
+    //   />
+    // );
   }
 );
- 
