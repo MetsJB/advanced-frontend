@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entites/User";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { Avatar } from "shared/ui/Avatar/Avatar";
 
 interface NavbarProps {
   className?: string;
@@ -37,20 +39,33 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <Text theme={TextTheme.INVERTED} className={cls.appName} title={t("Ulbi TV App")} />
-        <AppLink 
-        className={cls.createBtn}
-        theme={AppLinkTheme.SECONDARY} 
-        to={RoutePath.article_create}>
+        <Text
+          theme={TextTheme.INVERTED}
+          className={cls.appName}
+          title={t("Ulbi TV App")}
+        />
+        <AppLink
+          className={cls.createBtn}
+          theme={AppLinkTheme.SECONDARY}
+          to={RoutePath.article_create}
+        >
           {t("Создать статью")}
         </AppLink>
-        <Button
-          onClick={onLogout}
-          theme={ButtonTheme.CLEAR_INVERTED}
-          className={cls.links}
-        >
-          {t("Выйти")}
-        </Button>
+        <Dropdown
+          direction="bottom left"
+          className={cls.dropdown}
+          trigger={<Avatar size={30} src={authData.avatar} />}
+          items={[
+            {
+              content: t("Выйти"),
+              onClick: onLogout,
+            },
+            {
+              content: t("Профиль"),
+              href: RoutePath.profile + authData.id
+            },
+          ]}
+        />
       </header>
     );
   }
