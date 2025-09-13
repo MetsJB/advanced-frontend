@@ -7,7 +7,7 @@ import {
   ArticleList,
   ArticleView,
   ArticleViewSelector,
-} from "entites/Article";
+} from "entities/Article";
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -46,15 +46,13 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const articles = useSelector(getArticles.selectAll);
   let [searchParams] = useSearchParams();
 
-
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
-
   useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
-  })
+  });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>

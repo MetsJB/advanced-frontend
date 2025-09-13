@@ -4,11 +4,11 @@ import ArticleDeTailsPage from "./ArticleDeTailsPage";
 import { ThemeDecorator } from "shared/config/storybook/themeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
-import { Article } from "entites/Article";
+import { Article } from "entities/Article";
 import {
   ArticleBlockType,
   ArticleType,
-} from "entites/Article/model/types/article";
+} from "entities/Article/model/types/article";
 import { StoreDecorator } from "shared/config/storybook/storeDecorator/StoreDecorator";
 
 export default {

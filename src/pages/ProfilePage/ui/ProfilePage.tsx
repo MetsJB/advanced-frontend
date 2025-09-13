@@ -17,14 +17,14 @@ import {
   ProfileCard,
   profileReducer,
   ValidateProfileError,
-} from "entites/Profile";
+} from "entities/Profile";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { fromPairs } from "lodash";
-import { Currency } from "entites/Currency";
-import { Country } from "entites/Country";
+import { Currency } from "entities/Currency";
+import { Country } from "entities/Country";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useParams } from "react-router-dom";
@@ -122,7 +122,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ProfilePage, {}, [className])}>
-        <VStack gap="16" max >
+        <VStack gap="16" max>
           <ProfilePageHeader />
           {validateErrors?.length &&
             validateErrors.map((error) => (

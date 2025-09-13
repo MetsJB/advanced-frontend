@@ -8,17 +8,17 @@ import {
   getProfileReadonly,
   profileActions,
   updateProfileData,
-} from "entites/Profile";
+} from "entities/Profile";
 import { useCallback } from "react";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { getUserAuthData } from "entites/User";
+import { getUserAuthData } from "entities/User";
 import { HStack } from "shared/ui/Stack/HStack/HStack";
 
 interface ProfilePageHeaderProps {
   className?: string;
 }
 
-export const  ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
+export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   const { t } = useTranslation("profile");
   const authData = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileData);

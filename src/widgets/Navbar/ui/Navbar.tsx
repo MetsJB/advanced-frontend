@@ -8,7 +8,7 @@ import { memo, useCallback, useState } from "react";
 import { Modal } from "shared/ui/Modal/Modal";
 import { LoginModal } from "features/AuthByUsername";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, userActions } from "entites/User";
+import { getUserAuthData, userActions } from "entities/User";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { RoutePath } from "shared/config/routerConfig/routerConfig";
 import { Dropdown } from "shared/ui/Dropdown/Dropdown";
@@ -62,7 +62,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             },
             {
               content: t("Профиль"),
-              href: RoutePath.profile + authData.id
+              href: RoutePath.profile + authData.id,
             },
           ]}
         />

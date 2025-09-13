@@ -7,7 +7,7 @@ import MainIcon from "shared/assets/icons/main-20-20.svg";
 import { SidebarItemType } from "../../model/types/sidebar";
 import { memo } from "react";
 import { useSelector } from "react-redux";
-import { getUserAuthData } from "entites/User";
+import { getUserAuthData } from "entities/User";
 
 interface SidebarItemProps {
   item: SidebarItemType;

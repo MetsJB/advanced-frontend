@@ -5,8 +5,8 @@ import { ThemeDecorator } from "shared/config/storybook/themeDecorator/ThemeDeco
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { StoreDecorator } from "shared/config/storybook/storeDecorator/StoreDecorator";
-import { Currency } from "entites/Currency";
-import { Country } from "entites/Country";
+import { Currency } from "entities/Currency";
+import { Country } from "entities/Country";
 import avatar from "shared/assets/tests/storybook.jpg";
 
 export default {
@@ -42,7 +42,10 @@ Normal.decorators = [
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({profile: {
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    profile: {
       form: {
         age: 22,
         avatar: avatar,
@@ -53,4 +56,6 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({profile: {
         username: "Kerry_13",
         country: Country.Russia,
       },
-    },})];
+    },
+  }),
+];

@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import cls from "./ArticleDeTailsPage.module.scss";
 import { memo, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArticleDetails, ArticleList } from "entites/Article";
+import { ArticleDetails, ArticleList } from "entities/Article";
 import { Text, TextSize } from "shared/ui/Text/Text";
-import { CommentList } from "entites/Comment";
+import { CommentList } from "entities/Comment";
 import {
   DynamicModuleLoader,
   ReducersList,
