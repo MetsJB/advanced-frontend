@@ -1,8 +1,8 @@
-import { profileSlice, profileReducer, profileActions } from "./profileSlice";
-import { ProfileSchema, ValidateProfileError } from "../types/profile";
+import {  profileReducer, profileActions } from "./profileSlice";
+import { ValidateProfileError } from "../types/editableProfileCardSchema";
+import { ProfileSchema } from "../types/editableProfileCardSchema";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
-import { update } from "lodash";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 
 const data = {
