@@ -14,6 +14,8 @@ export const initArticlesPage = createAsyncThunk<
   const { getState, dispatch } = thunkAPI;
   const inited = getArticlePageInited(getState());
 
+  console.log('AAAAAAAAAAAAAaa',searchParams)
+
   if (!inited) {
     const orderFromUrl = searchParams.get("order") as SortOrder;
     const sortFromUrl = searchParams.get("sort") as ArticleSortField;

@@ -10,8 +10,8 @@ import path from "path";
 const config = {
   globals: {
     __IS_DEV__: true,
-    __API__: '',
-    __PROJECT__: 'jest',
+    __API__: "",
+    __PROJECT__: "jest",
   },
   clearMocks: true,
   testEnvironment: "jsdom",
@@ -36,9 +36,21 @@ const config = {
   setupFilesAfterEnv: ["<rootDir>config/jest/setupTest.ts"],
   moduleNameMapper: {
     "\\.(s?css)$": "identity-obj-proxy",
-    "\\.svg": path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
   },
   modulePaths: ["<rootDir>", "src"],
+  reporters: [
+    "default",
+    [
+      "jest-html-reporters",
+      {
+        publicPath: "<rootDir>/reports/unit",
+        filename: "report.html",
+        openReport: true,
+        inlineSource: true,
+      },
+    ],
+  ],
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -83,8 +95,6 @@ const config = {
 
   // A path to a module which exports an async function that is triggered once after all test suites
   // globalTeardown: undefined,
-
-  
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
