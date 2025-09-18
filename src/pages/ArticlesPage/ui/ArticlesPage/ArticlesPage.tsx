@@ -31,6 +31,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
   let [searchParams] = useSearchParams();
 
+
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);

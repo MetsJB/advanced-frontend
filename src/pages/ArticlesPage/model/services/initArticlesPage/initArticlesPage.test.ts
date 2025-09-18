@@ -8,6 +8,13 @@ jest.mock("../../slices/articlesPageSlice");
 
 describe("initArticlesPage.test", () => {
   test("success", async () => {
+    const searchParams = new URLSearchParams({
+      order: "asc",
+      sort: "views",
+      search: "",
+      type: "all",
+    });
+
     const thunk = new TestAsyncThunk(initArticlesPage, {
       articlePage: {
         page: 2,
@@ -19,15 +26,11 @@ describe("initArticlesPage.test", () => {
         _inited: false,
       },
     });
-    // await thunk.callThunk({set(name, value) {
-        
-    // },} as URLSearchParams );
-    // await thunk.callThunk('order=asc&sort=views&search=*&type=all' as URLSearchParams);
 
-    // expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticleList).toBeCalledWith({ page: 1 });
+    const result = await thunk.callThunk(searchParams);
+
+    expect(thunk.dispatch).toBeCalledTimes(7);
     expect(articlesPageActions.initState).toBeCalled();
+    expect(result.meta.requestStatus).toBe("fulfilled");
+  });
 });
-
-});
-  
