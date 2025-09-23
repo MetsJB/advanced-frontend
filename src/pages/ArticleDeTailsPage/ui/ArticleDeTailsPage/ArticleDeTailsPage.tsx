@@ -23,13 +23,6 @@ const ArticleDeTailsPage = ({ className }: ArticleDeTailsPageProps) => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return (
-      <Page className={classNames(cls.ArticleDeTailsPage, {}, [className])}>
-        {t("Статья не найдена")}
-      </Page>
-    );
-  }
 
   const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
