@@ -21,10 +21,8 @@ import { Text, TextAlign, TextSize } from "shared/ui/Text/Text";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Icon } from "shared/ui/Icon/Icon";
-import {
-  ArticleBlock,
-  ArticleBlockType,
-} from "entities/Article/model/types/article";
+import { ArticleBlock } from "entities/Article/model/types/article";
+import { ArticleBlockType } from "entities/Article/model/consts/articleConsts";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
@@ -139,7 +137,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <VStack
-      max
+        max
         gap="16"
         className={classNames(cls.ArticleDetails, {}, [className])}
       >

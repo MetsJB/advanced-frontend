@@ -25,7 +25,7 @@ import { SortOrder } from "shared/types";
 import { fetchArticleList } from "../../model/services/fetchArticleList/fetchArticleList";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { TabItem, Tabs } from "shared/ui/Tabs/Tabs";
-import { ArticleType } from "entities/Article/model/types/article";
+import { ArticleType } from "entities/Article/model/consts/articleConsts";
 
 interface ArticlesPageFiltersProps {
   className?: string;

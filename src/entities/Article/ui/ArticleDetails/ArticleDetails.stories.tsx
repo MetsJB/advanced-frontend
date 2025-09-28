@@ -5,11 +5,9 @@ import { ThemeDecorator } from "shared/config/storybook/themeDecorator/ThemeDeco
 import { Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 import { StoreDecorator } from "shared/config/storybook/storeDecorator/StoreDecorator";
-import {
-  Article,
-  ArticleBlockType,
-  ArticleType,
-} from "../../model/types/article";
+import { Article } from "../../model/types/article";
+import { ArticleType } from "entities/Article/model/consts/articleConsts";
+import { ArticleBlockType } from "entities/Article/model/consts/articleConsts";
 
 export default {
   title: "entities/ArticleDetails",

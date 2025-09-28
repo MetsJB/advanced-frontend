@@ -1,5 +1,7 @@
 import { ArticleDetailsReducer } from "./articleDetailsSlice";
-import { Article, ArticleBlockType, ArticleType } from "../types/article";
+import { Article } from "../types/article";
+import { ArticleType } from "../consts/articleConsts";
+import { ArticleBlockType } from "../consts/articleConsts";
 import { ArticleDetailsSchema } from "../types/articleDetailsSchema";
 import { fetchArticleByID } from "../services/fetchArticleByID";
 import { error } from "console";
@@ -115,14 +117,13 @@ describe("articleDetailsSlice.test", () => {
       error: undefined,
     };
 
-
     expect(
       ArticleDetailsReducer(
         state as ArticleDetailsSchema,
-        fetchArticleByID.rejected(new Error(""), "", "" , "error")
+        fetchArticleByID.rejected(new Error(""), "", "", "error")
       )
     ).toEqual({
-      error: 'error',
+      error: "error",
       isLoading: false,
     });
   });

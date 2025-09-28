@@ -3,11 +3,11 @@ import { ThunkConfig } from "app/providers/StoreProvider";
 import { User, userActions } from "entities/User";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localStorage";
 import { Profile } from "../../../../../entities/Profile/model/types/profile";
-import { ValidateProfileError } from "../../types/editableProfileCardSchema";
 import { ThunkExtraArg } from "app/providers/StoreProvider/config/stateSchema";
 import { getProfileForm } from "../../selectors/getProfileForm/getProfileForm";
 import { validateProfileData } from "../validateProfileData/validateProfileData";
 import { error } from "console";
+import { ValidateProfileError } from "../../consts/consts";
 
 export const updateProfileData = createAsyncThunk<
   Profile,
