@@ -26,5 +26,6 @@ export const Avatar = ({ alt, className, src, size }: AvatarProps) => {
       style={styles}
       className={classNames(cls.Avatar, mods, [className])}
     />
+    
   );
 };
