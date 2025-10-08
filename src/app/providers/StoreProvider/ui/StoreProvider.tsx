@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./StoreProvider.module.scss";
 import { ReactNode } from "react";
 import { Provider } from "react-redux";

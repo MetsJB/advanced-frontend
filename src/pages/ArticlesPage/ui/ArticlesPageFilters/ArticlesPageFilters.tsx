@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import cls from "./ArticlesPageFilters.module.scss";
@@ -8,8 +8,8 @@ import {
   ArticleTypeTabs,
   ArticleView,
   ArticleViewSelector,
-} from "entities/Article";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+} from "@/entities/Article";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 import { useSelector } from "react-redux";
 import {
@@ -19,13 +19,13 @@ import {
   getArticlePageType,
   getArticlePageView,
 } from "../../model/selectors/articlePageSelectors";
-import { Card } from "shared/ui/Card/Card";
-import { Input } from "shared/ui/Input/Input";
-import { SortOrder } from "shared/types";
+import { Card } from "@/shared/ui/Card/Card";
+import { Input } from "@/shared/ui/Input/Input";
+import { SortOrder } from "@/shared/types";
 import { fetchArticleList } from "../../model/services/fetchArticleList/fetchArticleList";
-import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
-import { TabItem, Tabs } from "shared/ui/Tabs/Tabs";
-import { ArticleType } from "entities/Article/model/consts/articleConsts";
+import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
+import { TabItem, Tabs } from "@/shared/ui/Tabs/Tabs";
+import { ArticleType } from "@/entities/Article/model/consts/articleConsts";
 
 interface ArticlesPageFiltersProps {
   className?: string;

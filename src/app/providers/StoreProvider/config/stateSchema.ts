@@ -6,21 +6,21 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { AxiosInstance } from "axios";
-import { ArticleDetailsSchema } from "entities/Article";
-import { CounterSchema } from "entities/Counter";
-import { UserSchema } from "entities/User";
-import { addCommentFormSchema } from "features/addCommentForm";
-import { LoginSchema } from "features/AuthByUsername";
-import { ProfileSchema } from "features/editableProfileCard";
-import { UIShema } from "features/UI";
+import { ArticleDetailsSchema } from "@/entities/Article";
+import { CounterSchema } from "@/entities/Counter";
+import { UserSchema } from "@/entities/User";
+import { addCommentFormSchema } from "@/features/addCommentForm";
+import { LoginSchema } from "@/features/AuthByUsername";
+import { ProfileSchema } from "@/features/editableProfileCard";
+import { UIShema } from "@/features/UI";
 import {
   ArticelDetailsCommentsSchema,
   ArticleDetailsPageSchema,
   ArticleDetailsRecommendationsSchema,
-} from "pages/ArticleDeTailsPage";
-import { ArticlePageSchema } from "pages/ArticlesPage";
+} from "@/pages/ArticleDeTailsPage";
+import { ArticlePageSchema } from "@/pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
-import { rtkApi } from "shared/api/rtkApi";
+import { rtkApi } from "@/shared/api/rtkApi";
 
 
 export interface StateScheme {

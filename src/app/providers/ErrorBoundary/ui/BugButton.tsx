@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 

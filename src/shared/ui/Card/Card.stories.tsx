@@ -1,7 +1,7 @@
-import { Text } from "shared/ui/Text/Text";
+import { Text } from "@/shared/ui/Text/Text";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Card } from "./Card";
-import "app/styles/index.scss";
+import "@/app/styles/index.scss";
 
 export default {
   title: "features/Card",

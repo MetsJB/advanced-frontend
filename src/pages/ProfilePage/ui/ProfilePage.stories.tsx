@@ -1,13 +1,13 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import ProfilePage from "./ProfilePage";
-import { ThemeDecorator } from "shared/config/storybook/themeDecorator/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
-import "app/styles/index.scss";
-import { StoreDecorator } from "shared/config/storybook/storeDecorator/StoreDecorator";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
-import avatar from "shared/assets/tests/storybook.jpg";
+import { ThemeDecorator } from "@/shared/config/storybook/themeDecorator/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
+import "@/app/styles/index.scss";
+import { StoreDecorator } from "@/shared/config/storybook/storeDecorator/StoreDecorator";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
+import avatar from "@/shared/assets/tests/storybook.jpg";
 
 export default {
   title: "pages/ProfilePage",

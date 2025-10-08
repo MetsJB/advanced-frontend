@@ -1,4 +1,4 @@
-import { StateScheme } from "app/providers/StoreProvider/config/stateSchema";
+import { StateScheme } from "@/app/providers/StoreProvider/config/stateSchema";
 
 export const getaddCommentFormText = (state: StateScheme) =>
   state.addCommentForm?.text ?? '';

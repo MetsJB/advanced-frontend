@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ArticleListItem } from "./ArticleListItem";
-import "app/styles/index.scss";
-import { Article } from "entities/Article/model/types/article";
+import "@/app/styles/index.scss";
+import { Article } from "@/entities/Article/model/types/article";
 import { ArticleView } from "../../model/consts/articleConsts";
 
 export default {

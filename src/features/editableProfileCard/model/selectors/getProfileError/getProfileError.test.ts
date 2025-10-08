@@ -1,7 +1,7 @@
-import { StateScheme } from "app/providers/StoreProvider";
+import { StateScheme } from "@/app/providers/StoreProvider";
 import { getProfileError } from "./getProfileError";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
 
 describe("getProfileError.test", () => {
   test("should return true", () => {

@@ -1,13 +1,13 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import ArticleDeTailsPage from "./ArticleDeTailsPage";
-import { ThemeDecorator } from "shared/config/storybook/themeDecorator/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
-import "app/styles/index.scss";
-import { Article } from "entities/Article";
-import { ArticleType } from "entities/Article/model/consts/articleConsts";
-import { ArticleBlockType } from "entities/Article/model/consts/articleConsts";
-import { StoreDecorator } from "shared/config/storybook/storeDecorator/StoreDecorator";
+import { ThemeDecorator } from "@/shared/config/storybook/themeDecorator/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
+import "@/app/styles/index.scss";
+import { Article } from "@/entities/Article";
+import { ArticleType } from "@/entities/Article/model/consts/articleConsts";
+import { ArticleBlockType } from "@/entities/Article/model/consts/articleConsts";
+import { StoreDecorator } from "@/shared/config/storybook/storeDecorator/StoreDecorator";
 
 export default {
   title: "pages/ArticleDeTailsPage",

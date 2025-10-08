@@ -1,32 +1,32 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import cls from "./ArticleDetails.module.scss";
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import EyeIcon from "shared/assets/icons/eye-20-20.svg";
-import CalendarIcon from "shared/assets/icons/calendar-20-20.svg";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import EyeIcon from "@/shared/assets/icons/eye-20-20.svg";
+import CalendarIcon from "@/shared/assets/icons/calendar-20-20.svg";
 import { ArticleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { memo, useCallback, useEffect } from "react";
 import { fetchArticleByID } from "../../model/services/fetchArticleByID";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from "../../model/selectors/articleDetails";
-import { Text, TextAlign, TextSize } from "shared/ui/Text/Text";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
-import { Avatar } from "shared/ui/Avatar/Avatar";
-import { Icon } from "shared/ui/Icon/Icon";
-import { ArticleBlock } from "entities/Article/model/types/article";
-import { ArticleBlockType } from "entities/Article/model/consts/articleConsts";
+import { Text, TextAlign, TextSize } from "@/shared/ui/Text/Text";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Icon } from "@/shared/ui/Icon/Icon";
+import { ArticleBlock } from "@/entities/Article/model/types/article";
+import { ArticleBlockType } from "@/entities/Article/model/consts/articleConsts";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { HStack, VStack } from "shared/ui/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 
 interface ArticleDetailsProps {
   className?: string;

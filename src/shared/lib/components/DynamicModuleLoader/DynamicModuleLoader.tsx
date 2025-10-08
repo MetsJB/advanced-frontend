@@ -3,7 +3,7 @@ import {
   ReduxStoreWithManager,
   StateSchemaKey,
   StateScheme,
-} from "app/providers/StoreProvider/config/stateSchema";
+} from "@/app/providers/StoreProvider/config/stateSchema";
 import { FC, ReactNode, useEffect } from "react";
 import { useDispatch, useStore } from "react-redux";
 

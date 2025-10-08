@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { CommentCard } from "./CommentCard";
-import "app/styles/index.scss";
+import "@/app/styles/index.scss";
 
 export default {
   title: "entities/comment/CommentCard",

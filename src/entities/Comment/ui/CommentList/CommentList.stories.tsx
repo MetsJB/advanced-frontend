@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { CommentList } from "./CommentList";
-import "app/styles/index.scss";
+import "@/app/styles/index.scss";
 
 export default {
   title: "entities/comment/CommentList",

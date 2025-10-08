@@ -1,21 +1,21 @@
-import { classNames, Mods } from "shared/lib/classNames/classNames";
+import { classNames, Mods } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import cls from "./ProfileCard.module.scss";
 import { useSelector } from "react-redux";
-import { getProfileData } from "features/editableProfileCard/model/selectors/getProfileData/getProfileData";
-import { getProfileIsLoading } from "features/editableProfileCard/model/selectors/getProfileIsLoading/getProfileIsLoading";
-import { getProfileError } from "features/editableProfileCard/model/selectors/getProfileError/getProfileError";
-import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
+import { getProfileData } from "@/features/editableProfileCard/model/selectors/getProfileData/getProfileData";
+import { getProfileIsLoading } from "@/features/editableProfileCard/model/selectors/getProfileIsLoading/getProfileIsLoading";
+import { getProfileError } from "@/features/editableProfileCard/model/selectors/getProfileError/getProfileError";
+import { Text, TextAlign, TextTheme } from "@/shared/ui/Text/Text";
+import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
+import { Input } from "@/shared/ui/Input/Input";
 import { Profile } from "../../model/types/profile";
-import { Loader } from "shared/ui/Loader/Loader";
-import { Avatar } from "shared/ui/Avatar/Avatar";
-import { Select } from "shared/ui/Select/Select";
-import { Currency, CurrencySelect } from "entities/Currency";
-import { Country } from "shared/const/Country";
-import { CountrySelect } from "entities/Country";
-import { HStack, VStack } from "shared/ui/Stack";
+import { Loader } from "@/shared/ui/Loader/Loader";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Select } from "@/shared/ui/Select/Select";
+import { Currency, CurrencySelect } from "@/entities/Currency";
+import { Country } from "@/shared/const/Country";
+import { CountrySelect } from "@/entities/Country";
+import { HStack, VStack } from "@/shared/ui/Stack";
 
 interface ProfileCardProps {
   className?: string;

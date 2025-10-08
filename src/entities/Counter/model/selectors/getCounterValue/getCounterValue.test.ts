@@ -1,5 +1,5 @@
 import { getCounterValue } from "./getCounterValue";
-import { StateScheme } from "app/providers/StoreProvider";
+import { StateScheme } from "@/app/providers/StoreProvider";
 
 describe("getCounterValue.test", () => {
   const state: DeepPartial<StateScheme> = {

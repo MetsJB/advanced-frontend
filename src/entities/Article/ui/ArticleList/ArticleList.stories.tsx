@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ArticleList } from "./ArticleList";
-import "app/styles/index.scss";
+import "@/app/styles/index.scss";
 import { Article } from "../../model/types/article";
 import { ArticleView } from "../../model/consts/articleConsts";
 

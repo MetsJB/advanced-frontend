@@ -1,5 +1,5 @@
 import { fetchArticleByID } from "./fetchArticleByID";
-import { TestAsyncThunk } from "shared/lib/tests/testAsyncThunk/testAsyncThunk";
+import { TestAsyncThunk } from "@/shared/lib/tests/testAsyncThunk/testAsyncThunk";
 import { Article } from "../types/article";
 import { ArticleType } from "../consts/articleConsts";
 import { ArticleBlockType } from "../consts/articleConsts";

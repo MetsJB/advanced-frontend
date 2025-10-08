@@ -1,18 +1,18 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import cls from "./LoginForm.module.scss";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
+import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
+import { Input } from "@/shared/ui/Input/Input";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import { memo, useCallback, useEffect } from "react";
 import {
   loginActions,
   loginReducer,
-} from "features/AuthByUsername/model/slice/loginSlice";
-import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername";
-import { Text, TextTheme } from "shared/ui/Text/Text";
+} from "@/features/AuthByUsername/model/slice/loginSlice";
+import { loginByUsername } from "@/features/AuthByUsername/model/services/loginByUsername";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
 import { deflate } from "zlib";
-import { ReduxStoreWithManager } from "app/providers/StoreProvider/config/stateSchema";
+import { ReduxStoreWithManager } from "@/app/providers/StoreProvider/config/stateSchema";
 import { getLoginUsername } from "./../../model/selectors/getLoginUsername/getLoginUsername";
 import { getLoginPassword } from "./../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginIsLoading } from "./../../model/selectors/getLoginIsLoading/getLoginIsLoading";
@@ -20,8 +20,8 @@ import { getLoginIsError } from "./../../model/selectors/getLoginIsError/getLogi
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export interface LoginFormProps {
   className?: string;

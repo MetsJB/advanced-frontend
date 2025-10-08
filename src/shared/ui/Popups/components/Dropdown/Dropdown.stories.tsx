@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Dropdown } from "./Dropdown";
-import "app/styles/index.scss";
+import "@/app/styles/index.scss";
 import { Button } from "../../../Button/Button";
 
 export default {

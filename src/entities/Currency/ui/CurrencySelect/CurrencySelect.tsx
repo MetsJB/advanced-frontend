@@ -1,10 +1,10 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import cls from "./CurrencySelect.module.scss";
-import { Select } from "shared/ui/Select/Select";
+import { Select } from "@/shared/ui/Select/Select";
 import { Currency } from "../../model/type/currency";
 import { memo, useCallback } from "react";
-import { ListBox } from "shared/ui/Popups/components/ListBox/ListBox";
+import { ListBox } from "@/shared/ui/Popups/components/ListBox/ListBox";
 
 interface CurrencySelectProps {
   className?: string;

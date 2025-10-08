@@ -1,7 +1,7 @@
-import { StateScheme } from "app/providers/StoreProvider";
+import { StateScheme } from "@/app/providers/StoreProvider";
 import { getProfileReadonly } from "./getProfileReadonly";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
 
 describe("getProfileReadonly.test", () => {
   test("should return true", () => {

@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { ListBox } from "./ListBox";
-import "app/styles/index.scss";
+import "@/app/styles/index.scss";
 
 export default {
   title: "shared/ListBox",
