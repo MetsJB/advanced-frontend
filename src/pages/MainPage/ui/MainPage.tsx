@@ -1,6 +1,7 @@
+import { RatingCard } from "@/entities/Rating";
+import { Page } from "@/widgets/Page/Page";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Page } from "@/widgets/Page/Page";
 
 const MainPage = () => {
   const { t } = useTranslation("main");
@@ -13,6 +14,11 @@ const MainPage = () => {
   return (
     <Page>
       <div>Main Page</div>
+      <RatingCard
+        title="Как вам статья?"
+        feedbackTitle="Оставьте отзыв о статье"
+        hasFeedback
+      />
     </Page>
   );
 };
