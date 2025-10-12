@@ -7,7 +7,7 @@ import { ArticleView } from "../../model/consts/articleConsts";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import { Text, TextSize } from "@/shared/ui/Text/Text";
-import { PAGE_ID } from "@/widgets/Page/Page";
+import { PAGE_ID } from "@/widgets/Page";
 
 interface ArticleListProps {
   className?: string;
@@ -34,7 +34,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = ArticleView.SMALL,
   } = props;
   const { t } = useTranslation();
-
 
   if (!isLoading && !articles.length) {
     return (

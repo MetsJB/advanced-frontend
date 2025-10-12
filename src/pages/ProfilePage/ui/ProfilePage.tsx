@@ -1,7 +1,7 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ProfilePage.module.scss";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
-import { Page } from "@/widgets/Page/Page";
+import { Page } from "@/widgets/Page";
 import { VStack } from "@/shared/ui/Stack/VStack/VStack";
 import { EditableProfileCard } from "@/features/editableProfileCard";
 import { useParams } from "react-router-dom";
@@ -17,7 +17,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   if (!id) {
     return null;
   }
-
 
   return (
     <Page className={classNames(cls.ProfilePage, {}, [className])}>
