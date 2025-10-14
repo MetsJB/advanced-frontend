@@ -1,8 +1,8 @@
-import { classNames } from "@/shared/lib/classNames/classNames";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-//компонент для тестирования ErrorBoundary
+// компонент для тестирования ErrorBoundary
 
 export const BugButton = () => {
   const [error, setError] = useState(false);
@@ -15,5 +15,9 @@ export const BugButton = () => {
     }
   }, [error]);
 
-  return <button onClick={onThrow}>{t("throw error")}</button>;
+  return (
+    <button type='button' onClick={onThrow}>
+      {t('throw error')}
+    </button>
+  );
 };

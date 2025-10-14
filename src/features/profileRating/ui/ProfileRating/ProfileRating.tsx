@@ -1,13 +1,13 @@
-import { RatingCard } from "@/entities/Rating";
-import { memo, useCallback } from "react";
-import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import { getUserAuthData } from "@/entities/User";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { RatingCard } from '@/entities/Rating';
+import { getUserAuthData } from '@/entities/User';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import {
   useGetProfileRating,
   useRateProfile,
-} from "../../api/profileRatingApi";
+} from '../../api/profileRatingApi';
 
 export interface ProfileRatingProps {
   className?: string;
@@ -22,7 +22,7 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
 
   const { data, isLoading } = useGetProfileRating({
     profileId,
-    userId: userData?.id ?? "",
+    userId: userData?.id ?? '',
   });
   const [rateProfileMutation] = useRateProfile();
 
@@ -32,8 +32,8 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
     (starsCount: number, feedback?: string) => {
       try {
         rateProfileMutation({
-          userId: userData?.id ?? "",
-          profileId: profileId,
+          userId: userData?.id ?? '',
+          profileId,
           rate: starsCount,
           feedback,
         });
@@ -61,7 +61,7 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
   }
 
   if (isLoading) {
-    return <Skeleton width={"100%"} height={120} />;
+    return <Skeleton width='100%' height={120} />;
   }
 
   return (
@@ -69,9 +69,9 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
       onAccept={onAccept}
       onCancel={onCancel}
       rate={rating?.rate}
-      title={t("Оцените профиль")}
+      title={t('Оцените профиль')}
       feedbackTitle={t(
-        "Оставьте свой отзыв о профиле, это поможет улучшить качество"
+        'Оставьте свой отзыв о профиле, это поможет улучшить качество'
       )}
       hasFeedback
       className={className}

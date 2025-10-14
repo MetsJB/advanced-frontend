@@ -1,5 +1,5 @@
-import { Rating } from "@/entities/Rating";
-import { rtkApi } from "@/shared/api/rtkApi";
+import { Rating } from '@/entities/Rating';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 interface GetProfileRatingArg {
   userId: string;
@@ -14,24 +14,24 @@ interface RateProfile {
 }
 
 const profileRatingApi = rtkApi.injectEndpoints({
-  endpoints: (build) => ({
-    getProfileRating: build.query<Rating[], GetProfileRatingArg>({
-      query: ({ profileId, userId }) => ({
-        url: "/profile-ratings",
-        params: {
-          userId,
-          profileId,
-        },
-      }),
+    endpoints: (build) => ({
+        getProfileRating: build.query<Rating[], GetProfileRatingArg>({
+            query: ({ profileId, userId }) => ({
+                url: '/profile-ratings',
+                params: {
+                    userId,
+                    profileId,
+                },
+            }),
+        }),
+        rateProfile: build.mutation<void, RateProfile>({
+            query: (arg) => ({
+                url: '/profile-ratings',
+                method: 'POST',
+                body: arg,
+            }),
+        }),
     }),
-    rateProfile: build.mutation<void, RateProfile>({
-      query: (arg) => ({
-        url: "/profile-ratings",
-        method: "POST",
-        body: arg,
-      }),
-    }),
-  }),
 });
 export const useGetProfileRating = profileRatingApi.useGetProfileRatingQuery;
 export const useRateProfile = profileRatingApi.useRateProfileMutation;

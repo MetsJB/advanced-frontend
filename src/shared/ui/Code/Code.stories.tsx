@@ -1,21 +1,21 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Code } from "./Code";
-import "@/app/styles/index.scss";
+import { Code } from './Code';
+import '@/app/styles/index.scss';
 
 export default {
-  title: "shared/Code",
-  component: Code,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
+    title: 'shared/Code',
+    component: Code,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof Code>;
 
 const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-text: `export default {
+    text: `export default {
   title: "shared/Code",
   component: Code,
   argTypes: {
@@ -25,5 +25,5 @@ text: `export default {
 
 const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
-export const Primary = Template.bind({});`
+export const Primary = Template.bind({});`,
 };

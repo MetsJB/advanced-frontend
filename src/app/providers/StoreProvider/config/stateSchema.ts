@@ -1,27 +1,26 @@
 import {
-  AnyAction,
-  CombinedState,
-  EnhancedStore,
-  Reducer,
-  ReducersMapObject,
-} from "@reduxjs/toolkit";
-import { AxiosInstance } from "axios";
-import { ArticleDetailsSchema } from "@/entities/Article";
-import { CounterSchema } from "@/entities/Counter";
-import { UserSchema } from "@/entities/User";
-import { addCommentFormSchema } from "@/features/addCommentForm";
-import { LoginSchema } from "@/features/AuthByUsername";
-import { ProfileSchema } from "@/features/editableProfileCard";
-import { UIShema } from "@/features/UI";
+    AnyAction,
+    CombinedState,
+    EnhancedStore,
+    Reducer,
+    ReducersMapObject,
+} from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
+import { NavigateOptions, To } from 'react-router-dom';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { CounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { addCommentFormSchema } from '@/features/addCommentForm';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ProfileSchema } from '@/features/editableProfileCard';
+import { UIShema } from '@/features/UI';
 import {
-  ArticelDetailsCommentsSchema,
-  ArticleDetailsPageSchema,
-  ArticleDetailsRecommendationsSchema,
-} from "@/pages/ArticleDeTailsPage";
-import { ArticlePageSchema } from "@/pages/ArticlesPage";
-import { NavigateOptions, To } from "react-router-dom";
-import { rtkApi } from "@/shared/api/rtkApi";
-
+    ArticelDetailsCommentsSchema,
+    ArticleDetailsPageSchema,
+    ArticleDetailsRecommendationsSchema,
+} from '@/pages/ArticleDeTailsPage';
+import { ArticlePageSchema } from '@/pages/ArticlesPage';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateScheme {
   counter: CounterSchema;
@@ -29,7 +28,7 @@ export interface StateScheme {
   ui: UIShema;
   [rtkApi.reducerPath]:ReturnType<typeof rtkApi.reducer>
 
-  //async reducer
+  // async reducer
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
@@ -47,7 +46,7 @@ export interface ReducerManager {
   reduce: (state: StateScheme, action: AnyAction) => CombinedState<StateScheme>;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
-  //true - вмонтирован, иначе нет
+  // true - вмонтирован, иначе нет
   getMountedReducers: () => MountedReducers;
 }
 

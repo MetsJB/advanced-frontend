@@ -1,24 +1,24 @@
-import { StateScheme } from "@/app/providers/StoreProvider";
-import { getProfileValidateErrors } from "./getProfileValidateErrors";
-import { Currency } from "@/entities/Currency";
-import { Country } from "@/entities/Country";
-import { ValidateProfileError } from "../../consts/consts";
+import { StateScheme } from '@/app/providers/StoreProvider';
+import { getProfileValidateErrors } from './getProfileValidateErrors';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { ValidateProfileError } from '../../consts/consts';
 
-describe("getProfileValidateErrors.test", () => {
-  test("should return true", () => {
-    const state: DeepPartial<StateScheme> = {
-      profile: {
-        validateErrors: [ValidateProfileError.NO_DATA],
-      },
-    };
+describe('getProfileValidateErrors.test', () => {
+    test('should return true', () => {
+        const state: DeepPartial<StateScheme> = {
+            profile: {
+                validateErrors: [ValidateProfileError.NO_DATA],
+            },
+        };
 
-    expect(getProfileValidateErrors(state as StateScheme)).toEqual([
-      ValidateProfileError.NO_DATA,
-    ]);
-  });
-  test("should work with empty state", () => {
-    const state: DeepPartial<StateScheme> = {};
+        expect(getProfileValidateErrors(state as StateScheme)).toEqual([
+            ValidateProfileError.NO_DATA,
+        ]);
+    });
+    test('should work with empty state', () => {
+        const state: DeepPartial<StateScheme> = {};
 
-    expect(getProfileValidateErrors(state as StateScheme)).toBe(undefined);
-  });
+        expect(getProfileValidateErrors(state as StateScheme)).toBe(undefined);
+    });
 });
