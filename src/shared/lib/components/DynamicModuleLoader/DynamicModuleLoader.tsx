@@ -8,7 +8,8 @@ import {
 } from '@/app/providers/StoreProvider/config/stateSchema';
 
 export type ReducersList = {
-  [name in StateSchemaKey]?: Reducer<NonNullable<StateScheme[name]>>;
+  [name in StateSchemaKey]?: Reducer;
+  // [name in StateSchemaKey]?: Reducer<NonNullable<StateScheme[name]>>;
 };
 
 interface DynamicModuleLoaderProps {
