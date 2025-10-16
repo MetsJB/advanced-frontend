@@ -1,9 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Skeleton } from './Skeleton';
-import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'shared/Skeleton',

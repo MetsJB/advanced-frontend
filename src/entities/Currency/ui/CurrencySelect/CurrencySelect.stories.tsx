@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { CurrencySelect } from './CurrencySelect';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
 
 export default {

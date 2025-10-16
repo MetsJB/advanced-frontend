@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Text } from '@/shared/ui/Text/Text';
 import { Card } from './Card';
+import { Text } from '../Text/Text';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
 
 export default {

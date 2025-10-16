@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import LoginForm from './LoginForm';
-import '@/app/styles/index.scss';
 import { StoreDecorator } from '@/shared/config/storybook/storeDecorator/StoreDecorator';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'features/LoginForm',

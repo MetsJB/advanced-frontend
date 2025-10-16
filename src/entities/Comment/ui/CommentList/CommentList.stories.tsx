@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { CommentList } from './CommentList';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
 
 export default {

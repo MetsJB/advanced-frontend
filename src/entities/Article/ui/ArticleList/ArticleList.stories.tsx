@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleList } from './ArticleList';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/articleConsts';

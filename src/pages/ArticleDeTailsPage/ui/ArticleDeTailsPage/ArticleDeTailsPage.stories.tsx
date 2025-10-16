@@ -2,10 +2,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ArticleDeTailsPage from './ArticleDeTailsPage';
 import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
-import '@/app/styles/index.scss';
 import { Article, ArticleType, ArticleBlockType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/storeDecorator/StoreDecorator';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'pages/ArticleDeTailsPage',

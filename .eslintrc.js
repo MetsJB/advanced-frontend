@@ -18,7 +18,7 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
-    'ulbi-tv-plugin',
+    'johannesburd-plugin',
   ],
   rules: {
     'react/jsx-indent': 'off',
@@ -77,8 +77,8 @@ module.exports = {
     'object-curly-newline': 'off',
     'comma-dangle': 'off',
     'react/jsx-no-useless-fragment': 'off',
-    'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
-    'ulbi-tv-plugin/public-api-imports': [
+    'johannesburd-plugin/path-checker': ['error', { alias: '@' }],
+    'johannesburd-plugin/public-api-imports': [
       'error',
       {
         alias: '@',
@@ -87,6 +87,13 @@ module.exports = {
           '**/*.story.*',
           '**/StoreDecorator.tsx',
         ],
+      },
+    ],
+    'johannesburd-plugin/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
       },
     ],
   },

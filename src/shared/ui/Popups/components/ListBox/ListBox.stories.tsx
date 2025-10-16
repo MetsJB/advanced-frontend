@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ListBox } from './ListBox';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
 
 export default {

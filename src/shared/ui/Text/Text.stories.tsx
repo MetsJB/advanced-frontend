@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Text, TextSize, TextTheme } from './Text';
-import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
+import '@/app/styles/index.scss';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'shared/Text',

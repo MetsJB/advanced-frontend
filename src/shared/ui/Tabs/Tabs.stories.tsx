@@ -1,8 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import '@/app/styles/index.scss';
 import { action } from '@storybook/addon-actions';
 import { Tabs } from './Tabs';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'shared/Tabs',

@@ -1,10 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ProfileCard } from './ProfileCard';
-import '@/app/styles/index.scss';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import avatart from '@/shared/assets/tests/storybook.jpg';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'entities/ProfileCard',

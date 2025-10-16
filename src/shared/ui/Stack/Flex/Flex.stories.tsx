@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Flex } from './Flex';
-import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'shared/Flex',

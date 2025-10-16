@@ -1,10 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Sidebar } from './Sidebar';
-import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/storeDecorator/StoreDecorator';
+import { Theme } from '@/shared/const/theme';
+// eslint-disable-next-line johannesburd-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'widget/Sidebar',
