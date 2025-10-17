@@ -9,8 +9,8 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { HStack } from '@/shared/ui/Stack';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Text } from '@/shared/ui/Text/Text';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Text } from '@/shared/ui/Text';
 
 interface EditableProfileCardHeaderProps {
   className?: string;
