@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Flex } from './Flex';
-import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDecorator';
 // eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
 

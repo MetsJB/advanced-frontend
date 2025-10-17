@@ -4,8 +4,6 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from './articleDetails';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
 
 describe('articleDetails.test', () => {
     test('getArticleDetailsData', () => {

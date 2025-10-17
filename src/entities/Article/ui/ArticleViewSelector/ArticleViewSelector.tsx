@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '../../model/consts/articleConsts';

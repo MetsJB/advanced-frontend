@@ -1,8 +1,4 @@
-import axios from 'axios';
-import { Dispatch } from '@reduxjs/toolkit';
 import { fetchProfileData } from './fetchProfileData';
-import { StateScheme } from '@/app/providers/StoreProvider';
-import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';

@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -25,7 +25,6 @@ import { Input } from '@/shared/ui/Input';
 import { SortOrder } from '@/shared/types';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem, Tabs } from '@/shared/ui/Tabs';
 
 interface ArticlesPageFiltersProps {
   className?: string;

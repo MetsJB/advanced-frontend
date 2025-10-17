@@ -1,6 +1,5 @@
 import {
     CombinedState,
-    combineReducers,
     configureStore,
     Reducer,
     ReducersMapObject,

@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ArticleDetails } from './ArticleDetails';
-import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDecorator';
 // eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
 import { StoreDecorator } from '@/shared/config/storybook/storeDecorator/StoreDecorator';

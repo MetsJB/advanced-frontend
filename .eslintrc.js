@@ -19,6 +19,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'johannesburd-plugin',
+    'unused-imports',
   ],
   rules: {
     'react/jsx-indent': 'off',
@@ -96,6 +97,7 @@ module.exports = {
         ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
       },
     ],
+    'unused-imports/no-unused-imports': 'error',
   },
   globals: {
     __IS_DEV__: true,

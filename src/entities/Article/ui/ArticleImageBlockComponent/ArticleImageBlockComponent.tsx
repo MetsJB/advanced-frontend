@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleImageBlockComponent.module.scss';
 import { ArticleImageBlock } from '../../model/types/article';

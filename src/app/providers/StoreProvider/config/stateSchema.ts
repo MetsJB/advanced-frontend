@@ -6,7 +6,6 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
@@ -15,9 +14,7 @@ import { LoginSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/editableProfileCard';
 import { UIShema } from '@/features/UI';
 import {
-    ArticelDetailsCommentsSchema,
     ArticleDetailsPageSchema,
-    ArticleDetailsRecommendationsSchema,
 } from '@/pages/ArticleDeTailsPage';
 import { ArticlePageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';

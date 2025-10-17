@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ArticleDeTailsPage from './ArticleDeTailsPage';
-import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDecorator';
 import { Article, ArticleType, ArticleBlockType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/storeDecorator/StoreDecorator';
 // eslint-disable-next-line johannesburd-plugin/layer-imports

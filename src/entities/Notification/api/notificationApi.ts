@@ -1,4 +1,3 @@
-import { Article } from '@/entities/Article';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { Notification } from '../../Notification/model/types/notification';
 
