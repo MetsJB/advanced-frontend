@@ -1,18 +1,18 @@
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ArticleTypeTabs } from './ArticleTypeTabs';
-// eslint-disable-next-line johannesburd-plugin/layer-imports
-import '@/app/styles/index.scss';
 
 export default {
-    title: 'entities/ArticleTypeTabs',
-    component: ArticleTypeTabs,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+  title: 'features/ArticleTypeTabs',
+  component: ArticleTypeTabs,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ArticleTypeTabs>;
 
 const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => (
-    <ArticleTypeTabs {...args} />
+  <ArticleTypeTabs {...args} />
 );
 
 export const Normal = Template.bind({});
