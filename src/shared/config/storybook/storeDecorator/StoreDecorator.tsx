@@ -13,7 +13,6 @@ const defaultAsyncReducers: ReducersList = {
   articleDetails: ArticleDetailsReducer,
   addCommentForm: addCommentFormReducer,
   articleDetailsPage: articleDetailsPageReducer,
-  // articleDetailsPage: articleDetailsPageReducer,
 };
 
 export const StoreDecorator = (state: DeepPartial<StateScheme>, asyncReducers?: ReducersList) =>
