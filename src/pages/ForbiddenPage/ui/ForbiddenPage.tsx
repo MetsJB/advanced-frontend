@@ -7,10 +7,14 @@ interface ForbiddenPageProps {
 }
 
 const ForbiddenPage = memo((props: ForbiddenPageProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
+  const { className } = props;
+  const { t } = useTranslation();
 
-    return <Page>{t('У вас нет доступа к этой странице')}</Page>;
+  return (
+    <Page data-testid='ForbiddenPage'>
+      {t('У вас нет доступа к этой странице')}
+    </Page>
+  );
 });
 
 export default ForbiddenPage;

@@ -3,11 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPageFilters.module.scss';
-import {
-  ArticleSortField,
-  ArticleView,
-  ArticleType,
-} from '@/entities/Article';
+import { ArticleSortField, ArticleView, ArticleType } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
@@ -19,7 +15,7 @@ import {
 } from '../../model/selectors/articlePageSelectors';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
