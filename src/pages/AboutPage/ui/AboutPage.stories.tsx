@@ -5,6 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDe
 // eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
 import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/storybook/storeDecorator/StoreDecorator';
 
 export default {
     title: 'pages/AboutPage',
@@ -12,6 +13,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof AboutPage>;
 
 const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
