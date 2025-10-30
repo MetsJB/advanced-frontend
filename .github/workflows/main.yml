@@ -83,7 +83,7 @@ jobs:
         run:  mv .loki reports/
         if: always()
       - name: Debug structure
-        if: true 
+        if: always()
         run: |
           echo "=== Public folder contents ==="
           find reports -type f -name "*.html"
