@@ -94,6 +94,12 @@ jobs:
         id: deployment
         if: always()
         uses: actions/deploy-pages@v4
+      - name: Debug structure
+        run: |
+              echo "=== Public folder contents ==="
+              find public -type f -name "*.html"
+              echo "=== Current directory ==="
+              ls -la
 
   checks:
     runs-on: ubuntu-latest
