@@ -87,7 +87,7 @@ jobs:
         if: always()
         with:
           name: loki-reports
-          path: '.loki'
+          path: '.loki/workflow'
       - name: Deploy to GitHub Pages
         id: deployment
         if: always()
