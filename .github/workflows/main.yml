@@ -85,10 +85,15 @@ jobs:
       - name: Debug structure
         if: always()
         run: |
-          echo "=== Public folder contents ==="
-          find reports -type f -name "*.html"
-          echo "=== Current directory ==="
-          ls -la
+          echo "=== reports FOLDER STRUCTURE ==="
+          find reports -type f -name "*.html" | sort
+          echo ""
+          echo "=== FILE TREE ==="
+          tree reports || find reports -type f
+          echo ""
+          echo "=== CHECK IF FILES EXIST ==="
+          [ -f "reports/unit/index.html" ] && echo "✅ Unit tests exist" || echo "❌ No unit tests"
+          [ -f "reports/.loki/report.html" ] && echo "✅ Loki reports exist" || echo "❌ No Loki reports"
       - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
