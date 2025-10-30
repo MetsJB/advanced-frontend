@@ -88,15 +88,30 @@ jobs:
       - name: Debug structure
         if: always()
         run: |
-          echo "=== reports FOLDER STRUCTURE ==="
-          find reports -type f -name "*.html" | sort
+          echo "🗺️  PROJECT MAP:"
+          echo "Root: $(pwd)"
           echo ""
-          echo "=== FILE TREE ==="
-          tree advanced-frontend || find reports -type f
+          echo "📂 MAIN FOLDERS:"
+          for dir in src config build dist public scripts tests; do
+            if [ -d "$dir" ]; then
+              size=$(du -sh "$dir" 2>/dev/null | cut -f1)
+              files=$(find "$dir" -type f 2>/dev/null | wc -l)
+              echo "  📁 $dir/ ($size, $files files)"
+            fi
+          done
+          
           echo ""
-          echo "=== CHECK IF FILES EXIST ==="
-          [ -f "reports/unit/index.html" ] && echo "✅ Unit tests exist" || echo "❌ No unit tests"
-          [ -f "reports/.loki/report.html" ] && echo "✅ Loki reports exist" || echo "❌ No Loki reports"
+          echo "📄 CONFIG FILES:"
+          find . -maxdepth 2 -name "*config*" -type f -not -path "*/node_modules/*" 2>/dev/null
+          
+          echo ""
+          echo "📊 REPORTS & BUILD:"
+          for dir in .loki coverage storybook-static; do
+            if [ -d "$dir" ]; then
+              html_files=$(find "$dir" -name "*.html" 2>/dev/null | wc -l)
+              echo "  📊 $dir/ ($html_files HTML files)"
+            fi
+          done
       - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
