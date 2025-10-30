@@ -92,7 +92,7 @@ jobs:
           find reports -type f -name "*.html" | sort
           echo ""
           echo "=== FILE TREE ==="
-          tree . || find reports -type f
+          tree advanced-frontend || find reports -type f
           echo ""
           echo "=== CHECK IF FILES EXIST ==="
           [ -f "reports/unit/index.html" ] && echo "✅ Unit tests exist" || echo "❌ No unit tests"
