@@ -83,9 +83,10 @@ jobs:
         uses: actions/configure-pages@v3
         if: always()
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3  
         if: always()
         with:
+          name: loki-reports
           path: '.loki'
       - name: Deploy to GitHub Pages
         id: deployment
