@@ -82,6 +82,13 @@ jobs:
       - name: move loki
         run:  mv .loki reports/
         if: always()
+      - name: Debug structure
+        if: true 
+        run: |
+          echo "=== Public folder contents ==="
+          find reports -type f -name "*.html"
+          echo "=== Current directory ==="
+          ls -la
       - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
@@ -94,12 +101,7 @@ jobs:
         id: deployment
         if: always()
         uses: actions/deploy-pages@v4
-      - name: Debug structure
-        run: |
-          echo "=== Public folder contents ==="
-          find reports -type f -name "*.html"
-          echo "=== Current directory ==="
-          ls -la
+      
 
   checks:
     runs-on: ubuntu-latest
