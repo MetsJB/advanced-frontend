@@ -92,6 +92,7 @@ jobs:
           echo "Root: $(pwd)"
           echo ""
           echo "📂 MAIN FOLDERS:"
+          ls -la
           for dir in src config build dist public scripts tests; do
             if [ -d "$dir" ]; then
               size=$(du -sh "$dir" 2>/dev/null | cut -f1)
