@@ -82,33 +82,30 @@ jobs:
       - name: Generate HTML report
         run: npm run test:ui:report
         if: always()
-      - name: Debug structure
+      - name: Debug structure BEFORE move loki
         if: always()
         run: |
           echo "🗺️  PROJECT MAP:"
           echo "Root: $(pwd)"
           echo ""
-          echo "📂 MAIN FOLDERS:"
+          echo "ROOT CATALOG"
           ls -la
-          for dir in src config build dist public scripts tests; do
-            if [ -d "$dir" ]; then
-              size=$(du -sh "$dir" 2>/dev/null | cut -f1)
-              files=$(find "$dir" -type f 2>/dev/null | wc -l)
-              echo "  📁 $dir/ ($size, $files files)"
-            fi
+          echo "REPORTS CATALOG"
+          ls -la reports/
           done
-          
+      - name: Move loki
+        run: mv .loki reports/
+        if: always()
+      - name: Debug structure AFTER move loki
+        if: always()
+        run: |
+          echo "🗺️  PROJECT MAP:"
+          echo "Root: $(pwd)"
           echo ""
-          echo "📄 CONFIG FILES:"
-          find . -maxdepth 2 -name "*config*" -type f -not -path "*/node_modules/*" 2>/dev/null
-          
-          echo ""
-          echo "📊 REPORTS & BUILD:"
-          for dir in .loki coverage storybook-static; do
-            if [ -d "$dir" ]; then
-              html_files=$(find "$dir" -name "*.html" 2>/dev/null | wc -l)
-              echo "  📊 $dir/ ($html_files HTML files)"
-            fi
+          echo "ROOT CATALOG"
+          ls -la
+          echo "REPORTS CATALOG"
+          ls -la reports/
           done
       - name: Setup Pages
         uses: actions/configure-pages@v2
