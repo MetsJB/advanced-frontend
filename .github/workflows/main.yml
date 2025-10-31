@@ -92,7 +92,6 @@ jobs:
           ls -la
           echo "REPORTS CATALOG"
           ls -la reports/
-          done
       - name: Move loki
         run: mv .loki reports/
         if: always()
@@ -106,7 +105,6 @@ jobs:
           ls -la
           echo "REPORTS CATALOG"
           ls -la reports/
-          done
       - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
