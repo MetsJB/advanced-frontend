@@ -93,7 +93,7 @@ jobs:
           echo "REPORTS CATALOG"
           ls -la reports/
       - name: Move loki
-        run: mv .loki reports/
+        run: mv .loki reports/loki
         if: always()
       - name: Debug structure AFTER move loki
         if: always()
