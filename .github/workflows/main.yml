@@ -106,7 +106,7 @@ jobs:
           echo "REPORTS CATALOG"
           ls -la reports/
           echo ".LOKI CATALOG"
-          ls -la reports/.loki
+          ls -la reports/loki
       - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
