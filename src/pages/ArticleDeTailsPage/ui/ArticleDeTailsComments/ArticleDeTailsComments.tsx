@@ -12,6 +12,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { fetchCommentsByArticleById } from '../../model/services/fetchCommentsByArticleById/fetchCommentsByArticleById';
 import { VStack } from '@/shared/ui/Stack';
 import { Loader } from '@/shared/ui/Loader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDeTailsCommentsProps {
   className?: string;
@@ -24,7 +25,7 @@ export const ArticleDeTailsComments = memo(
         const { t } = useTranslation();
         const comments = useSelector(getArticleComments.selectAll);
         const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-        const dispatch = useDispatch();
+        const dispatch = useAppDispatch();
 
         useInitialEffect(() => {
             dispatch(fetchCommentsByArticleById(id));
