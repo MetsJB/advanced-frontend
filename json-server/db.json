@@ -634,6 +634,15 @@
         "MANAGER"
       ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://lisa.ru/images/cache/2023/12/16/widen_960_crop_1500_1000_0_0_q90_1991832_add028ec85b017f9655139458.jpeg"
     }
   ],
   "profile": [
