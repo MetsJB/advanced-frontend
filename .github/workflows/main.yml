@@ -82,31 +82,9 @@ jobs:
       - name: Generate HTML report
         run: npm run test:ui:report
         if: always()
-      - name: Debug structure BEFORE move loki
-        if: always()
-        run: |
-          echo "🗺️  PROJECT MAP:"
-          echo "Root: $(pwd)"
-          echo ""
-          echo "ROOT CATALOG"
-          ls -la
-          echo "REPORTS CATALOG"
-          ls -la reports/
       - name: Move loki
         run: mv .loki reports/loki
         if: always()
-      - name: Debug structure AFTER move loki
-        if: always()
-        run: |
-          echo "🗺️  PROJECT MAP:"
-          echo "Root: $(pwd)"
-          echo ""
-          echo "ROOT CATALOG"
-          ls -la
-          echo "REPORTS CATALOG"
-          ls -la reports/
-          echo "LOKI CATALOG"
-          ls -la reports/loki
       - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
