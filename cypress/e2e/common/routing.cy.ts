@@ -14,7 +14,9 @@ describe('Роутинг', () => {
 
     it('Переход на несуществующий маршрут', () => {
       cy.visit('/notExistPage');
-      cy.get(selectByTestId('NotFoundPage')).should('exist');
+      cy.get(selectByTestId('NotFoundPage')).should(
+        'exist',
+      );
     });
   });
   describe('Пользователь авторизован', () => {
@@ -29,7 +31,9 @@ describe('Роутинг', () => {
 
     it('Переход на страницу со списком статей', () => {
       cy.visit('/articles');
-      cy.get(selectByTestId('ArticlesPage')).should('exist');
+      cy.get(selectByTestId('ArticlesPage')).should(
+        'exist',
+      );
     });
   });
 });

@@ -1,5 +1,8 @@
 /* eslint-disable johannesburd-plugin/layer-imports */
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {
+  ComponentStory,
+  ComponentMeta,
+} from '@storybook/react';
 import { AppImage } from './AppImage';
 import 'app/styles/index.scss';
 
@@ -11,9 +14,9 @@ export default {
   },
 } as ComponentMeta<typeof AppImage>;
 
-const Template: ComponentStory<typeof AppImage> = (args) => (
-  <AppImage {...args} />
-);
+const Template: ComponentStory<typeof AppImage> = (
+  args,
+) => <AppImage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

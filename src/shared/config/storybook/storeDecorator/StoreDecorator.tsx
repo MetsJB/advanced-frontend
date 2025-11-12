@@ -1,5 +1,8 @@
 import { Story } from '@storybook/react';
-import { StateScheme, StoreProvider } from '@/app/providers/StoreProvider';
+import {
+  StateScheme,
+  StoreProvider,
+} from '@/app/providers/StoreProvider';
 import { loginReducer } from '@/features/AuthByUsername/testing';
 import { ArticleDetailsReducer } from '@/entities/Article/testing';
 import { addCommentFormReducer } from '@/features/addCommentForm/testing';
@@ -15,12 +18,19 @@ const defaultAsyncReducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
 };
 
-export const StoreDecorator = (state: DeepPartial<StateScheme>, asyncReducers?: ReducersList) =>
+export const StoreDecorator =
+  (
+    state: DeepPartial<StateScheme>,
+    asyncReducers?: ReducersList,
+  ) =>
   (StoryComponent: Story) =>
     (
       <StoreProvider
         initialSate={state}
-        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+        asyncReducers={{
+          ...defaultAsyncReducers,
+          ...asyncReducers,
+        }}
       >
         <StoryComponent />
       </StoreProvider>

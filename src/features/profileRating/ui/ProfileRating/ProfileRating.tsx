@@ -41,19 +41,19 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
         console.log(error);
       }
     },
-    [profileId, rateProfileMutation, userData?.id]
+    [profileId, rateProfileMutation, userData?.id],
   );
   const onCancel = useCallback(
     (starsCount: number) => {
       handleRateProfile(starsCount);
     },
-    [handleRateProfile]
+    [handleRateProfile],
   );
   const onAccept = useCallback(
     (starsCount: number, feedback?: string) => {
       handleRateProfile(starsCount, feedback);
     },
-    [handleRateProfile]
+    [handleRateProfile],
   );
 
   if (isMyProfile) {
@@ -61,7 +61,7 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
   }
 
   if (isLoading) {
-    return <Skeleton width='100%' height={120} />;
+    return <Skeleton width="100%" height={120} />;
   }
 
   return (
@@ -71,7 +71,7 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
       rate={rating?.rate}
       title={t('Оцените профиль')}
       feedbackTitle={t(
-        'Оставьте свой отзыв о профиле, это поможет улучшить качество'
+        'Оставьте свой отзыв о профиле, это поможет улучшить качество',
       )}
       hasFeedback
       className={className}

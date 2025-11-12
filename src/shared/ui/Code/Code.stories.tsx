@@ -1,22 +1,27 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {
+  ComponentStory,
+  ComponentMeta,
+} from '@storybook/react';
 
 import { Code } from './Code';
 // eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
 
 export default {
-    title: 'shared/Code',
-    component: Code,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+  title: 'shared/Code',
+  component: Code,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof Code>;
 
-const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
+const Template: ComponentStory<typeof Code> = (args) => (
+  <Code {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-    text: `export default {
+  text: `export default {
   title: "shared/Code",
   component: Code,
   argTypes: {

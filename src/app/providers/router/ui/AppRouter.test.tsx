@@ -78,7 +78,9 @@ describe('app/router/AppRouter', () => {
       route: getRouteAdmin(),
     });
 
-    const page = await screen.findByTestId('AdminPanelPage');
+    const page = await screen.findByTestId(
+      'AdminPanelPage',
+    );
     expect(page).toBeInTheDocument();
   });
 });

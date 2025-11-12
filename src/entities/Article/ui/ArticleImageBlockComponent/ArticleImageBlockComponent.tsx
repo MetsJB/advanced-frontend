@@ -11,16 +11,32 @@ interface ArticleImageBlockComponentProps {
 }
 
 export const ArticleImageBlockComponent = memo(
-    ({ className, block }: ArticleImageBlockComponentProps) => {
-        const { t } = useTranslation();
+  ({
+    className,
+    block,
+  }: ArticleImageBlockComponentProps) => {
+    const { t } = useTranslation();
 
-        return (
-            <div
-                className={classNames(cls.ArticleImageBlockComponent, {}, [className])}
-            >
-                <img alt={block.title} src={block.src} className={cls.img} />
-                {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
-            </div>
-        );
-    },
+    return (
+      <div
+        className={classNames(
+          cls.ArticleImageBlockComponent,
+          {},
+          [className],
+        )}
+      >
+        <img
+          alt={block.title}
+          src={block.src}
+          className={cls.img}
+        />
+        {block.title && (
+          <Text
+            text={block.title}
+            align={TextAlign.CENTER}
+          />
+        )}
+      </div>
+    );
+  },
 );

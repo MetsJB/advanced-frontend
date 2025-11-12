@@ -3,28 +3,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { getUserInited, userActions } from '@/entities/User';
+import {
+  getUserInited,
+  userActions,
+} from '@/entities/User';
 import { AppRouter } from './providers/router';
 
 const App = () => {
-    const dispatch = useDispatch();
-    const inited = useSelector(getUserInited);
+  const dispatch = useDispatch();
+  const inited = useSelector(getUserInited);
 
-    useEffect(() => {
-        dispatch(userActions.initAuthdata());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(userActions.initAuthdata());
+  }, [dispatch]);
 
-    return (
-        <div className={classNames('app', {}, [])}>
-            <Suspense fallback="">
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    {inited && <AppRouter />}
-                </div>
-            </Suspense>
+  return (
+    <div className={classNames('app', {}, [])}>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          {inited && <AppRouter />}
         </div>
-    );
+      </Suspense>
+    </div>
+  );
 };
 
 export default App;

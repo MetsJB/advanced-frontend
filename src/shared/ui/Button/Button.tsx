@@ -1,7 +1,12 @@
 import {
-    ButtonHTMLAttributes, memo, ReactNode,
+  ButtonHTMLAttributes,
+  memo,
+  ReactNode,
 } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import {
+  classNames,
+  Mods,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -19,43 +24,47 @@ export enum ButtonSize {
   XL = 'size_xl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ButtonTheme;
   square?: boolean;
   size?: ButtonSize;
   disabled?: boolean;
   children?: ReactNode;
-  fullWidth?: boolean
+  fullWidth?: boolean;
 }
 
 export const Button = memo((props: ButtonProps) => {
-    const {
-        disabled,
+  const {
+    disabled,
+    className,
+    size = ButtonSize.M,
+    square,
+    theme = ButtonTheme.OUTLINE,
+    children,
+    fullWidth,
+    ...otherProps
+  } = props;
+
+  const mods: Mods = {
+    [cls.square]: square,
+    [cls[size]]: true,
+    [cls.disabled]: disabled,
+    [cls.fullWidth]: fullWidth,
+  };
+
+  return (
+    <button
+      type="button"
+      className={classNames(cls.Button, mods, [
         className,
-        size = ButtonSize.M,
-        square,
-        theme = ButtonTheme.OUTLINE,
-        children,
-        fullWidth,
-        ...otherProps
-    } = props;
-
-    const mods: Mods = {
-        [cls.square]: square,
-        [cls[size]]: true,
-        [cls.disabled]: disabled,
-        [cls.fullWidth]: fullWidth,
-    };
-
-    return (
-        <button
-            type="button"
-            className={classNames(cls.Button, mods, [className, cls[theme]])}
-            disabled={disabled}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    );
+        cls[theme],
+      ])}
+      disabled={disabled}
+      {...otherProps}
+    >
+      {children}
+    </button>
+  );
 });

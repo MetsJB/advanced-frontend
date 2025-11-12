@@ -7,20 +7,24 @@ import { createReduxStore } from '../config/store';
 interface StoreProviderProps {
   children?: ReactNode;
   initialSate?: DeepPartial<StateScheme>;
-  asyncReducers?: DeepPartial<ReducersMapObject<StateScheme>>;
+  asyncReducers?: DeepPartial<
+    ReducersMapObject<StateScheme>
+  >;
 }
 
-export const StoreProvider = (props: StoreProviderProps) => {
-    const { children, initialSate, asyncReducers } = props;
-    // const navigate = useNavigate();
+export const StoreProvider = (
+  props: StoreProviderProps,
+) => {
+  const { children, initialSate, asyncReducers } = props;
+  // const navigate = useNavigate();
 
-    const store = createReduxStore(
+  const store = createReduxStore(
     initialSate as StateScheme,
     asyncReducers as ReducersMapObject<StateScheme>,
     // navigate
-    );
+  );
 
-    console.log('render');
+  console.log('render');
 
-    return <Provider store={store}>{children}</Provider>;
+  return <Provider store={store}>{children}</Provider>;
 };

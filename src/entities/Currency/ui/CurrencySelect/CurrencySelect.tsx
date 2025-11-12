@@ -17,14 +17,19 @@ const options = [
 ];
 
 export const CurrencySelect = memo(
-  ({ className, onChange, value, readonly }: CurrencySelectProps) => {
+  ({
+    className,
+    onChange,
+    value,
+    readonly,
+  }: CurrencySelectProps) => {
     const { t } = useTranslation();
 
     const onChangeHandler = useCallback(
       (value: string) => {
         onChange?.(value as Currency);
       },
-      [onChange]
+      [onChange],
     );
 
     return (
@@ -35,9 +40,9 @@ export const CurrencySelect = memo(
         items={options}
         onChange={onChangeHandler}
         readonly={readonly}
-        direction='top right'
+        direction="top right"
         label={t('Укажите валюту')}
       />
     );
-  }
+  },
 );

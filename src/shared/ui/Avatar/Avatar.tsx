@@ -1,5 +1,8 @@
 import { CSSProperties, useMemo } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import {
+  classNames,
+  Mods,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 import { AppImage } from '../AppImage';
 import UserIcon from '../../assets/icons/user-filled.svg';
@@ -38,7 +41,9 @@ export const Avatar = ({
       height={size}
     />
   );
-  const fallback = <Skeleton width={size} height={size} border='50%' />;
+  const fallback = (
+    <Skeleton width={size} height={size} border="50%" />
+  );
 
   return (
     <AppImage

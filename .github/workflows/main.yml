@@ -39,9 +39,9 @@
 name: linting, testing, building
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 permissions:
   contents: write
   pages: write
@@ -58,7 +58,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - uses: actions/checkout@v4
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -89,21 +89,20 @@ jobs:
         uses: actions/configure-pages@v2
         if: always()
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4 
+        uses: actions/upload-pages-artifact@v4
         if: always()
         with:
-          path: 'reports'
+          path: "reports"
       - name: Deploy to GitHub Pages
         id: deployment
         if: always()
         uses: actions/deploy-pages@v4
-      
 
   checks:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}

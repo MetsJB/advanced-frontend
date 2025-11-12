@@ -19,47 +19,55 @@ interface AvatarDropdownProps {
   className?: string;
 }
 
-export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
-  const { className } = props;
-  const { t } = useTranslation();
-  const authData = useSelector(getUserAuthData);
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
-  const isAdminPanelAvailable = isAdmin || isManager;
-  const dispatch = useDispatch();
+export const AvatarDropdown = memo(
+  (props: AvatarDropdownProps) => {
+    const { className } = props;
+    const { t } = useTranslation();
+    const authData = useSelector(getUserAuthData);
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+    const isAdminPanelAvailable = isAdmin || isManager;
+    const dispatch = useDispatch();
 
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
+    const onLogout = useCallback(() => {
+      dispatch(userActions.logout());
+    }, [dispatch]);
 
-  if (!authData) {
-    return null;
-  }
+    if (!authData) {
+      return null;
+    }
 
-  return (
-    <Dropdown
-      className={classNames('', {}, [className])}
-      direction='bottom left'
-      trigger={<Avatar fallbackInverted size={30} src={authData.avatar} />}
-      items={[
-        ...(isAdminPanelAvailable
-          ? [
-              {
-                content: t('Админка'),
-                href: getRouteAdmin(),
-              },
-            ]
-          : []),
+    return (
+      <Dropdown
+        className={classNames('', {}, [className])}
+        direction="bottom left"
+        trigger={
+          <Avatar
+            fallbackInverted
+            size={30}
+            src={authData.avatar}
+          />
+        }
+        items={[
+          ...(isAdminPanelAvailable
+            ? [
+                {
+                  content: t('Админка'),
+                  href: getRouteAdmin(),
+                },
+              ]
+            : []),
 
-        {
-          content: t('Профиль'),
-          href: getRouteProfile(authData.id),
-        },
-        {
-          content: t('Выйти'),
-          onClick: onLogout,
-        },
-      ]}
-    />
-  );
-});
+          {
+            content: t('Профиль'),
+            href: getRouteProfile(authData.id),
+          },
+          {
+            content: t('Выйти'),
+            onClick: onLogout,
+          },
+        ]}
+      />
+    );
+  },
+);

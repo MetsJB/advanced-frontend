@@ -18,14 +18,19 @@ describe('Пользователь заходит на страницу стат
   });
 
   it('И видит список рекомендаций', () => {
-    cy.getByTestId('ArticleRecommendationsList').should('exist');
+    cy.getByTestId('ArticleRecommendationsList').should(
+      'exist',
+    );
   });
 
   it('И оставляет комментарий', () => {
     cy.getByTestId('ArticleDetails.Info');
     cy.getByTestId('AddCommentForm').scrollIntoView();
     cy.addComment('test text');
-    cy.getByTestId('CommentCard.Content').should('have.length', 1);
+    cy.getByTestId('CommentCard.Content').should(
+      'have.length',
+      1,
+    );
   });
 
   it('И ставит оценку', () => {
@@ -36,7 +41,9 @@ describe('Пользователь заходит на страницу стат
   });
 
   it('И ставит оценку (пример с стабом на фикстурах)', () => {
-    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+    cy.intercept('GET', '**/articles/*', {
+      fixture: 'article-details.json',
+    });
     cy.getByTestId('ArticleDetails.Info');
     cy.getByTestId('RatingCard').scrollIntoView();
     cy.setRate(4, 'feedback');

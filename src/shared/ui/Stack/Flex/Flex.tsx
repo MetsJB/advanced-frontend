@@ -1,8 +1,19 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  ReactNode,
+} from 'react';
+import {
+  classNames,
+  Mods,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
-export type FlexJustify = 'start' | 'center' | 'between' | 'end';
+export type FlexJustify =
+  | 'start'
+  | 'center'
+  | 'between'
+  | 'end';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
 export type FlexGap = '4' | '8' | '16' | '32';
@@ -72,7 +83,10 @@ export const Flex = (props: FlexProps) => {
   };
 
   return (
-    <div {...otherProps} className={classNames(cls.Flex, mods, classes)}>
+    <div
+      {...otherProps}
+      className={classNames(cls.Flex, mods, classes)}
+    >
       {children}
     </div>
   );

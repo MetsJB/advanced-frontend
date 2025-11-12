@@ -5,7 +5,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import {
+  classNames,
+  Mods,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
@@ -57,7 +60,9 @@ export const Input = memo((props: InputProps) => {
     setCaretPosition(e?.target?.selectionStart);
   };
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     onChange?.(e.target.value);
     setCaretPosition(e.target.value.length);
   };
@@ -67,9 +72,15 @@ export const Input = memo((props: InputProps) => {
   };
 
   return (
-    <div className={classNames(cls.InputWrapper, {}, [className])}>
+    <div
+      className={classNames(cls.InputWrapper, {}, [
+        className,
+      ])}
+    >
       {placeholder && (
-        <div className={cls.placeholder}>{`${placeholder}>`}</div>
+        <div
+          className={cls.placeholder}
+        >{`${placeholder}>`}</div>
       )}
       <div className={cls.caretWrapper}>
         <input

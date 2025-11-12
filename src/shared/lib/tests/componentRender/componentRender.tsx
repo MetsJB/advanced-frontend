@@ -5,7 +5,10 @@ import { MemoryRouter } from 'react-router-dom';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import i18nforTest from '../../../config/i18n/i18nForTests';
 import { Theme } from '@/shared/const/theme';
-import { StateScheme, StoreProvider } from '@/app/providers/StoreProvider';
+import {
+  StateScheme,
+  StoreProvider,
+} from '@/app/providers/StoreProvider';
 // eslint-disable-next-line johannesburd-plugin/layer-imports
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 // eslint-disable-next-line johannesburd-plugin/layer-imports
@@ -14,7 +17,9 @@ import '@/app/styles/index.scss';
 interface ComponentRenderOptions {
   route?: string;
   initialState?: DeepPartial<StateScheme>;
-  asyncReducers?: DeepPartial<ReducersMapObject<StateScheme>>;
+  asyncReducers?: DeepPartial<
+    ReducersMapObject<StateScheme>
+  >;
   theme?: Theme;
 }
 
@@ -34,7 +39,10 @@ export function TestProvider(props: TestProviderProps) {
 
   return (
     <MemoryRouter initialEntries={[route]}>
-      <StoreProvider asyncReducers={asyncReducers} initialSate={initialState}>
+      <StoreProvider
+        asyncReducers={asyncReducers}
+        initialSate={initialState}
+      >
         <I18nextProvider i18n={i18nforTest}>
           <ThemeProvider initialTheme={theme}>
             <div className={`app ${theme}`}>{children}</div>
@@ -47,7 +55,11 @@ export function TestProvider(props: TestProviderProps) {
 
 export function componentRender(
   component: ReactNode,
-  options: ComponentRenderOptions = {}
+  options: ComponentRenderOptions = {},
 ) {
-  return render(<TestProvider options={options}>{component}</TestProvider>);
+  return render(
+    <TestProvider options={options}>
+      {component}
+    </TestProvider>,
+  );
 }

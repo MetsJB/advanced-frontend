@@ -1,9 +1,9 @@
 import {
-    AnyAction,
-    CombinedState,
-    EnhancedStore,
-    Reducer,
-    ReducersMapObject,
+  AnyAction,
+  CombinedState,
+  EnhancedStore,
+  Reducer,
+  ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from '@/entities/Article';
@@ -13,9 +13,7 @@ import { addCommentFormSchema } from '@/features/addCommentForm';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/editableProfileCard';
 import { UIShema } from '@/features/UI';
-import {
-    ArticleDetailsPageSchema,
-} from '@/pages/ArticleDeTailsPage';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDeTailsPage';
 import { ArticlePageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 
@@ -23,7 +21,7 @@ export interface StateScheme {
   counter: CounterSchema;
   user: UserSchema;
   ui: UIShema;
-  [rtkApi.reducerPath]:ReturnType<typeof rtkApi.reducer>
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // async reducer
   loginForm?: LoginSchema;
@@ -36,18 +34,25 @@ export interface StateScheme {
 
 export type StateSchemaKey = keyof StateScheme;
 
-export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
+export type MountedReducers = OptionalRecord<
+  StateSchemaKey,
+  boolean
+>;
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateScheme>;
-  reduce: (state: StateScheme, action: AnyAction) => CombinedState<StateScheme>;
+  reduce: (
+    state: StateScheme,
+    action: AnyAction,
+  ) => CombinedState<StateScheme>;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
   // true - вмонтирован, иначе нет
   getMountedReducers: () => MountedReducers;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateScheme> {
+export interface ReduxStoreWithManager
+  extends EnhancedStore<StateScheme> {
   reducerManager: ReducerManager;
 }
 export interface ThunkExtraArg {

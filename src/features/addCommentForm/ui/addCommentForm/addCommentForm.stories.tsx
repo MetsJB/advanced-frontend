@@ -1,4 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {
+  ComponentStory,
+  ComponentMeta,
+} from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import AddCommentForm from './addCommentForm';
 import { StoreDecorator } from '@/shared/config/storybook/storeDecorator/StoreDecorator';
@@ -6,22 +9,20 @@ import { StoreDecorator } from '@/shared/config/storybook/storeDecorator/StoreDe
 import '@/app/styles/index.scss';
 
 export default {
-    title: 'features/AddCommentForm',
-    component: AddCommentForm,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+  title: 'features/AddCommentForm',
+  component: AddCommentForm,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof AddCommentForm>;
 
-const Template: ComponentStory<typeof AddCommentForm> = (args) => (
-    <AddCommentForm {...args} />
-);
+const Template: ComponentStory<typeof AddCommentForm> = (
+  args,
+) => <AddCommentForm {...args} />;
 console.log();
 export const Primary = Template.bind({});
 Primary.args = {
-    onSendComment: action('onSendComment'),
+  onSendComment: action('onSendComment'),
 };
 
-Primary.decorators = [StoreDecorator({
-
-})];
+Primary.decorators = [StoreDecorator({})];

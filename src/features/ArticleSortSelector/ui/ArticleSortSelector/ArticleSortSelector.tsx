@@ -14,57 +14,73 @@ interface ArticleSortSelectorProps {
   onChangeSort: (newSort: ArticleSortField) => void;
 }
 
-export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-  const { className, onChangeOrder, onChangeSort, order, sort } = props;
-  const { t } = useTranslation();
+export const ArticleSortSelector = memo(
+  (props: ArticleSortSelectorProps) => {
+    const {
+      className,
+      onChangeOrder,
+      onChangeSort,
+      order,
+      sort,
+    } = props;
+    const { t } = useTranslation();
 
-  const orderOptions = useMemo<SelectOptions<SortOrder>[]>(
-    () => [
-      {
-        value: 'asc',
-        content: t('возростанию'),
-      },
-      {
-        value: 'desc',
-        content: t('убыванию'),
-      },
-    ],
-    [t]
-  );
+    const orderOptions = useMemo<
+      SelectOptions<SortOrder>[]
+    >(
+      () => [
+        {
+          value: 'asc',
+          content: t('возростанию'),
+        },
+        {
+          value: 'desc',
+          content: t('убыванию'),
+        },
+      ],
+      [t],
+    );
 
-  const sortFieldOptions = useMemo<SelectOptions<ArticleSortField>[]>(
-    () => [
-      {
-        value: ArticleSortField.CREATED,
-        content: t('дате создания'),
-      },
-      {
-        value: ArticleSortField.TITLE,
-        content: t('названию'),
-      },
-      {
-        value: ArticleSortField.VIEWS,
-        content: t('количеству просмотров'),
-      },
-    ],
-    [t]
-  );
+    const sortFieldOptions = useMemo<
+      SelectOptions<ArticleSortField>[]
+    >(
+      () => [
+        {
+          value: ArticleSortField.CREATED,
+          content: t('дате создания'),
+        },
+        {
+          value: ArticleSortField.TITLE,
+          content: t('названию'),
+        },
+        {
+          value: ArticleSortField.VIEWS,
+          content: t('количеству просмотров'),
+        },
+      ],
+      [t],
+    );
 
-  return (
-    <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-      <Select<ArticleSortField>
-        value={sort}
-        onChange={onChangeSort}
-        options={sortFieldOptions}
-        label={t('Сортировать ПО')}
-      />
-      <Select<SortOrder>
-        value={order}
-        onChange={onChangeOrder}
-        options={orderOptions}
-        label={t('по')}
-        className={cls.order}
-      />
-    </div>
-  );
-});
+    return (
+      <div
+        className={classNames(cls.ArticleSortSelector, {}, [
+          className,
+        ])}
+      >
+        <Select<ArticleSortField>
+          value={sort}
+          onChange={onChangeSort}
+          options={sortFieldOptions}
+          label={t('Сортировать ПО')}
+        />
+        <Select<SortOrder>
+          value={order}
+          onChange={onChangeOrder}
+          options={orderOptions}
+          label={t('по')}
+          className={cls.order}
+        />
+      </div>
+    );
+  },
+);

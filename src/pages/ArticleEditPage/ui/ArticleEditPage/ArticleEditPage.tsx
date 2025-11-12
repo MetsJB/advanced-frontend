@@ -9,17 +9,25 @@ interface ArticleEditPageProps {
   className?: string;
 }
 
-const ArticleEditPage = memo((props: ArticleEditPageProps) => {
+const ArticleEditPage = memo(
+  (props: ArticleEditPageProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
 
     return (
-        <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
-            {isEdit ? `Редактировать статью с ID = ${id}` : 'Создание новой статьи'}
-        </Page>
+      <Page
+        className={classNames(cls.ArticleEditPage, {}, [
+          className,
+        ])}
+      >
+        {isEdit
+          ? `Редактировать статью с ID = ${id}`
+          : 'Создание новой статьи'}
+      </Page>
     );
-});
+  },
+);
 
 export default ArticleEditPage;

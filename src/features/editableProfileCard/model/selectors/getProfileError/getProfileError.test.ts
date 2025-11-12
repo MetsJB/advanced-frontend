@@ -2,18 +2,22 @@ import { StateScheme } from '@/app/providers/StoreProvider';
 import { getProfileError } from './getProfileError';
 
 describe('getProfileError.test', () => {
-    test('should return true', () => {
-        const state: DeepPartial<StateScheme> = {
-            profile: {
-                error: 'error',
-            },
-        };
+  test('should return true', () => {
+    const state: DeepPartial<StateScheme> = {
+      profile: {
+        error: 'error',
+      },
+    };
 
-        expect(getProfileError(state as StateScheme)).toBe('error');
-    });
-    test('should work with empty state', () => {
-        const state: DeepPartial<StateScheme> = {};
+    expect(getProfileError(state as StateScheme)).toBe(
+      'error',
+    );
+  });
+  test('should work with empty state', () => {
+    const state: DeepPartial<StateScheme> = {};
 
-        expect(getProfileError(state as StateScheme)).toBe(undefined);
-    });
+    expect(getProfileError(state as StateScheme)).toBe(
+      undefined,
+    );
+  });
 });

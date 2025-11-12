@@ -22,7 +22,7 @@ export const Tabs = memo((props: TabsProps) => {
     (tab: TabItem) => () => {
       onTabClick(tab);
     },
-    [onTabClick]
+    [onTabClick],
   );
 
   return (
@@ -30,7 +30,11 @@ export const Tabs = memo((props: TabsProps) => {
       {tabs.map((tab) => (
         <Card
           data-testid={`Tabs.${tab.value}`}
-          theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+          theme={
+            tab.value === value
+              ? CardTheme.NORMAL
+              : CardTheme.OUTLINED
+          }
           key={tab.value}
           className={cls.tab}
           onClick={clickHandle(tab)}

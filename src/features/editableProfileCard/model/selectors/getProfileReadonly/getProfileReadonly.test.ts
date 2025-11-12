@@ -2,18 +2,22 @@ import { StateScheme } from '@/app/providers/StoreProvider';
 import { getProfileReadonly } from './getProfileReadonly';
 
 describe('getProfileReadonly.test', () => {
-    test('should return true', () => {
-        const state: DeepPartial<StateScheme> = {
-            profile: {
-                readonly: true,
-            },
-        };
+  test('should return true', () => {
+    const state: DeepPartial<StateScheme> = {
+      profile: {
+        readonly: true,
+      },
+    };
 
-        expect(getProfileReadonly(state as StateScheme)).toBe(true);
-    });
-    test('should work with empty state', () => {
-        const state: DeepPartial<StateScheme> = {};
+    expect(getProfileReadonly(state as StateScheme)).toBe(
+      true,
+    );
+  });
+  test('should work with empty state', () => {
+    const state: DeepPartial<StateScheme> = {};
 
-        expect(getProfileReadonly(state as StateScheme)).toBe(undefined);
-    });
+    expect(getProfileReadonly(state as StateScheme)).toBe(
+      undefined,
+    );
+  });
 });

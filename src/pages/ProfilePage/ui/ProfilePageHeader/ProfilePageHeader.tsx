@@ -2,6 +2,6 @@ interface ProfilePageHeaderProps {
   className?: string;
 }
 
-export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
-
-};
+export const ProfilePageHeader = ({
+  className,
+}: ProfilePageHeaderProps) => {};

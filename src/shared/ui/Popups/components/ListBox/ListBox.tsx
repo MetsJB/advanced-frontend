@@ -26,56 +26,68 @@ interface ListBoxProps {
 }
 
 export function ListBox(props: ListBoxProps) {
-    const {
-        readonly,
-        className,
-        direction = 'bottom left',
-        items,
-        defaultValue,
-        onChange,
-        value,
-        label,
-    } = props;
+  const {
+    readonly,
+    className,
+    direction = 'bottom left',
+    items,
+    defaultValue,
+    onChange,
+    value,
+    label,
+  } = props;
 
-    const optionsClasses = [mapDirectionClass[direction]];
+  const optionsClasses = [mapDirectionClass[direction]];
 
-    return (
-        <HStack gap="4">
-            {label && <span>{`${label}>`}</span>}
-            <HListbox
-                disabled={readonly}
-                as="div"
-                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
-                value={value}
-                onChange={onChange}
+  return (
+    <HStack gap="4">
+      {label && <span>{`${label}>`}</span>}
+      <HListbox
+        disabled={readonly}
+        as="div"
+        className={classNames(cls.ListBox, {}, [
+          className,
+          popupCls.popup,
+        ])}
+        value={value}
+        onChange={onChange}
+      >
+        <HListbox.Button
+          disabled={readonly}
+          className={cls.trigger}
+        >
+          <Button disabled={readonly}>
+            {value ?? defaultValue}
+          </Button>
+        </HListbox.Button>
+        <HListbox.Options
+          className={classNames(
+            cls.options,
+            {},
+            optionsClasses,
+          )}
+        >
+          {items?.map((item) => (
+            <HListbox.Option
+              key={item.value}
+              value={item.value}
+              as={Fragment}
+              disabled={item.disabled}
             >
-                <HListbox.Button disabled={readonly} className={cls.trigger}>
-                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
-                </HListbox.Button>
-                <HListbox.Options
-                    className={classNames(cls.options, {}, optionsClasses)}
+              {({ active }) => (
+                <li
+                  className={classNames(cls.item, {
+                    [popupCls.disabled]: item.disabled,
+                    [popupCls.active]: active,
+                  })}
                 >
-                    {items?.map((item) => (
-                        <HListbox.Option
-                            key={item.value}
-                            value={item.value}
-                            as={Fragment}
-                            disabled={item.disabled}
-                        >
-                            {({ active }) => (
-                                <li
-                                    className={classNames(cls.item, {
-                                        [popupCls.disabled]: item.disabled,
-                                        [popupCls.active]: active,
-                                    })}
-                                >
-                                    {item.content}
-                                </li>
-                            )}
-                        </HListbox.Option>
-                    ))}
-                </HListbox.Options>
-            </HListbox>
-        </HStack>
-    );
+                  {item.content}
+                </li>
+              )}
+            </HListbox.Option>
+          ))}
+        </HListbox.Options>
+      </HListbox>
+    </HStack>
+  );
 }

@@ -29,49 +29,53 @@ const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm = memo((props: addCommentFormProps) => {
-  const { className, onSendComment } = props;
-  const { t } = useTranslation();
-  const text = useSelector(getaddCommentFormText);
-  const error = useSelector(getaddCommentFormError);
-  const dispatch = useAppDispatch();
+const AddCommentForm = memo(
+  (props: addCommentFormProps) => {
+    const { className, onSendComment } = props;
+    const { t } = useTranslation();
+    const text = useSelector(getaddCommentFormText);
+    const error = useSelector(getaddCommentFormError);
+    const dispatch = useAppDispatch();
 
-  const onCommentTextChange = useCallback(
-    (value: string) => {
-      dispatch(addCommentFormActions.setText(value));
-    },
-    [dispatch]
-  );
+    const onCommentTextChange = useCallback(
+      (value: string) => {
+        dispatch(addCommentFormActions.setText(value));
+      },
+      [dispatch],
+    );
 
-  const onSendHandler = useCallback(() => {
-    onSendComment(text || '');
-    onCommentTextChange('');
-  }, [text, onSendComment, onCommentTextChange]);
+    const onSendHandler = useCallback(() => {
+      onSendComment(text || '');
+      onCommentTextChange('');
+    }, [text, onSendComment, onCommentTextChange]);
 
-  return (
-    <DynamicModuleLoader reducers={reducers}>
-      <HStack
-        data-testid='AddCommentForm'
-        justify='between'
-        max
-        className={classNames(cls.addCommentForm, {}, [className])}
-      >
-        <Input
-          data-testid='AddCommentForm.Input'
-          className={cls.input}
-          onChange={onCommentTextChange}
-          value={text}
-          placeholder={t('Введите текст комментария')}
-        />
-        <Button
-          onClick={onSendHandler}
-          data-testid='AddCommentForm.Button'
-          theme={ButtonTheme.OUTLINE}
+    return (
+      <DynamicModuleLoader reducers={reducers}>
+        <HStack
+          data-testid="AddCommentForm"
+          justify="between"
+          max
+          className={classNames(cls.addCommentForm, {}, [
+            className,
+          ])}
         >
-          {t('Оправить')}
-        </Button>
-      </HStack>
-    </DynamicModuleLoader>
-  );
-});
+          <Input
+            data-testid="AddCommentForm.Input"
+            className={cls.input}
+            onChange={onCommentTextChange}
+            value={text}
+            placeholder={t('Введите текст комментария')}
+          />
+          <Button
+            onClick={onSendHandler}
+            data-testid="AddCommentForm.Button"
+            theme={ButtonTheme.OUTLINE}
+          >
+            {t('Оправить')}
+          </Button>
+        </HStack>
+      </DynamicModuleLoader>
+    );
+  },
+);
 export default AddCommentForm;

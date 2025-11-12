@@ -1,4 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {
+  ComponentStory,
+  ComponentMeta,
+} from '@storybook/react';
 import { Text, TextSize, TextTheme } from './Text';
 import { ThemeDecorator } from '@/shared/config/storybook/themeDecorator/ThemeDecorator';
 // eslint-disable-next-line johannesburd-plugin/layer-imports
@@ -6,74 +9,76 @@ import '@/app/styles/index.scss';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Text',
-    component: Text,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+  title: 'shared/Text',
+  component: Text,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof Text>;
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
+const Template: ComponentStory<typeof Text> = (args) => (
+  <Text {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-    title: 'Title lorem ipsum',
-    text: 'Text  ipsum ipsum ipsum',
+  title: 'Title lorem ipsum',
+  text: 'Text  ipsum ipsum ipsum',
 };
 
 export const Error = Template.bind({});
 Error.args = {
-    title: 'Title lorem ipsum',
-    text: 'Text  ipsum ipsum ipsum',
-    theme: TextTheme.ERROR,
+  title: 'Title lorem ipsum',
+  text: 'Text  ipsum ipsum ipsum',
+  theme: TextTheme.ERROR,
 };
 
 export const onlyTitle = Template.bind({});
 onlyTitle.args = {
-    title: 'Title lorem ipsum',
+  title: 'Title lorem ipsum',
 };
 
 export const onlyText = Template.bind({});
 onlyText.args = {
-    text: 'Text  ipsum ipsum ipsum',
+  text: 'Text  ipsum ipsum ipsum',
 };
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-    title: 'Title lorem ipsum',
-    text: 'Text  ipsum ipsum ipsum',
+  title: 'Title lorem ipsum',
+  text: 'Text  ipsum ipsum ipsum',
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const onlyTitleDark = Template.bind({});
 onlyTitleDark.args = {
-    title: 'Title lorem ipsum',
+  title: 'Title lorem ipsum',
 };
 onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const onlyTextDark = Template.bind({});
 onlyTextDark.args = {
-    text: 'Text  ipsum ipsum ipsum',
+  text: 'Text  ipsum ipsum ipsum',
 };
 onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SizeL = Template.bind({});
 SizeL.args = {
-    title: 'Title lorem ipsum',
-    text: 'Text  ipsum ipsum ipsum',
-    size: TextSize.L,
+  title: 'Title lorem ipsum',
+  text: 'Text  ipsum ipsum ipsum',
+  size: TextSize.L,
 };
 
 export const SizeM = Template.bind({});
 SizeM.args = {
-    title: 'Title lorem ipsum',
-    text: 'Text  ipsum ipsum ipsum',
-    size: TextSize.M,
+  title: 'Title lorem ipsum',
+  text: 'Text  ipsum ipsum ipsum',
+  size: TextSize.M,
 };
 
 export const SizeS = Template.bind({});
 SizeS.args = {
-    title: 'Title lorem ipsum',
-    text: 'Text  ipsum ipsum ipsum',
-    size: TextSize.S,
+  title: 'Title lorem ipsum',
+  text: 'Text  ipsum ipsum ipsum',
+  size: TextSize.S,
 };

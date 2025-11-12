@@ -2,7 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
+import {
+  getRouteArticleEdit,
+  getRouteArticles,
+} from '@/shared/const/router';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getArticleDetailsData } from '@/entities/Article';
@@ -32,16 +35,26 @@ export const ArticleDetailsPageHeader = memo(
     }, [navigate, article]);
 
     return (
-      <HStack max justify='between' className={classNames('', {}, [className])}>
-        <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+      <HStack
+        max
+        justify="between"
+        className={classNames('', {}, [className])}
+      >
+        <Button
+          theme={ButtonTheme.OUTLINE}
+          onClick={onBackToList}
+        >
           {t('Назад к списку')}
         </Button>
         {canEdit && (
-          <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
+          <Button
+            theme={ButtonTheme.OUTLINE}
+            onClick={onEditArticle}
+          >
             {t('Редактировать')}
           </Button>
         )}
       </HStack>
     );
-  }
+  },
 );

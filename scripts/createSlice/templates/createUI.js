@@ -34,10 +34,10 @@ module.exports = async (layer, sliceName) => {
         styleTemplate(componentName)
       );
     } catch (e) {
-        console.log('Не удалось создать компонент');
+      console.log("Не удалось создать компонент");
     }
   };
 
-  await createUIDir()
-  await createComponent()
+  await createUIDir();
+  await createComponent();
 };

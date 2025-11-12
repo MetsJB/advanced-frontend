@@ -7,12 +7,20 @@ describe('Пользователь заходит на страницу со с�
 
   it('и статьи успешно подгружаются', () => {
     cy.getByTestId('ArticleList').should('exist');
-    cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+    cy.getByTestId('ArticleListItem').should(
+      'have.length.greaterThan',
+      3,
+    );
   });
   it('на фикстурах', () => {
-    cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
+    cy.intercept('GET', '**/articles?*', {
+      fixture: 'articles.json',
+    });
     cy.getByTestId('ArticleList').should('exist');
-    cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+    cy.getByTestId('ArticleListItem').should(
+      'have.length.greaterThan',
+      3,
+    );
   });
 
   it.skip('Пример заскипанного теста"', () => {
@@ -25,7 +33,7 @@ describe('Пользователь заходит на страницу со с�
     cy.getByTestId('Text.Header').should('exist');
     cy.getByTestId('SubtitleArticle.Paragraph').should(
       'have.text',
-      'Научная статья - Биология'
+      'Научная статья - Биология',
     );
   });
 });

@@ -23,8 +23,12 @@ export const ArticleDeTailsComments = memo(
   (props: ArticleDeTailsCommentsProps) => {
     const { className, id } = props;
     const { t } = useTranslation();
-    const comments = useSelector(getArticleComments.selectAll);
-    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+    const comments = useSelector(
+      getArticleComments.selectAll,
+    );
+    const commentsIsLoading = useSelector(
+      getArticleCommentsIsLoading,
+    );
     const dispatch = useAppDispatch();
 
     useInitialEffect(() => {
@@ -35,17 +39,24 @@ export const ArticleDeTailsComments = memo(
       (text: string) => {
         dispatch(addCommentForArticle(text));
       },
-      [dispatch]
+      [dispatch],
     );
 
     return (
-      <VStack gap='16' max className={classNames('', {}, [className])}>
+      <VStack
+        gap="16"
+        max
+        className={classNames('', {}, [className])}
+      >
         <Text size={TextSize.L} title={t('Комментарии')} />
         <Suspense fallback={<Loader />}>
           <AddCommentForm onSendComment={onSendComment} />
         </Suspense>
-        <CommentList isLoading={commentsIsLoading} comments={comments} />
+        <CommentList
+          isLoading={commentsIsLoading}
+          comments={comments}
+        />
       </VStack>
     );
-  }
+  },
 );

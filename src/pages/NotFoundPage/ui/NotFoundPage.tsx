@@ -6,12 +6,19 @@ interface NotFoundPageProps {
   className?: string;
 }
 
-export const NotFoundPage = ({ className }: NotFoundPageProps) => {
-    const { t } = useTranslation();
+export const NotFoundPage = ({
+  className,
+}: NotFoundPageProps) => {
+  const { t } = useTranslation();
 
-    return (
-        <div data-testid='NotFoundPage' className={classNames(cls.NotFoundPage, {}, [className])}>
-            {t('Cтраница не найдена')}
-        </div>
-    );
+  return (
+    <div
+      data-testid="NotFoundPage"
+      className={classNames(cls.NotFoundPage, {}, [
+        className,
+      ])}
+    >
+      {t('Cтраница не найдена')}
+    </div>
+  );
 };
