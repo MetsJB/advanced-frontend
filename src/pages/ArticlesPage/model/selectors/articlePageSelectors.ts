@@ -4,10 +4,10 @@ import {
   ArticleType,
   ArticleView,
 } from '@/entities/Article';
+import { buildSelector } from '@/shared/lib/store';
 
-export const getArticlePageIsLoading = (
-  state: StateScheme,
-) => state.articlePage?.isLoading || false;
+export const getArticlePageIsLoading = (state: StateScheme) =>
+  state.articlePage?.isLoading || false;
 
 export const getArticlePageError = (state: StateScheme) =>
   state.articlePage?.error;
@@ -38,3 +38,7 @@ export const getArticlePageSearch = (state: StateScheme) =>
 
 export const getArticlePageType = (state: StateScheme) =>
   state.articlePage?.type || ArticleType.ALL;
+
+export const [useArticleItemById] = buildSelector(
+  (state: StateScheme, id: string) => state.articlePage?.entities[id],
+);
