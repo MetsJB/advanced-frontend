@@ -15,6 +15,8 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDeTailsComments } from '../ArticleDeTailsComments/ArticleDeTailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDeTailsPage.module.scss';
+import { getFeatureFlag } from '@/shared/lib/features';
+import { Counter } from '@/entities/Counter';
 
 interface ArticleDeTailsPageProps {
   className?: string;
@@ -29,16 +31,20 @@ const ArticleDeTailsPage = ({
 }: ArticleDeTailsPageProps) => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
+  const isArticleRatingEnabled = getFeatureFlag(
+    'isArticleRatingEnabled',
+  );
+  console.log('isArticleRatingEnabled', isArticleRatingEnabled)
+  const isCounterEnabled = getFeatureFlag(
+    'isCounterEnabled',
+  );
 
   if (!id) {
     return null;
   }
 
   return (
-    <DynamicModuleLoader
-      reducers={reducers}
-      removeAfterUnmount
-    >
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page
         className={classNames(cls.ArticleDeTailsPage, {}, [
           className,
@@ -47,7 +53,8 @@ const ArticleDeTailsPage = ({
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          <ArticleRating articleId={id} />
+          {isCounterEnabled && <Counter/>}
+          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
           <ArticleRecommendationsList />
           <ArticleDeTailsComments id={id} />
         </VStack>
