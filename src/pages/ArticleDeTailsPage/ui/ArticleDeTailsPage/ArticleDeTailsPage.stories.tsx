@@ -1,7 +1,4 @@
-import {
-  ComponentStory,
-  ComponentMeta,
-} from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ArticleDeTailsPage from './ArticleDeTailsPage';
 import {
@@ -21,9 +18,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleDeTailsPage>;
 
-const Template: ComponentStory<
-  typeof ArticleDeTailsPage
-> = () => <ArticleDeTailsPage />;
+const Template: ComponentStory<typeof ArticleDeTailsPage> = () => (
+  <ArticleDeTailsPage />
+);
 
 const article: Article = {
   id: '1',
