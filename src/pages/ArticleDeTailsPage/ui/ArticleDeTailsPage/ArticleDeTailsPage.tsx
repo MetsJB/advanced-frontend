@@ -16,7 +16,7 @@ import { ArticleDeTailsComments } from '../ArticleDeTailsComments/ArticleDeTails
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDeTailsPage.module.scss';
 import {
-  getFeatureFlag,
+  // getFeatureFlag,
   toggleFeatures,
 } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
@@ -35,9 +35,6 @@ const ArticleDeTailsPage = ({
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
 
-  const isArticleRatingEnabled = getFeatureFlag(
-    'isArticleRatingEnabled',
-  );
 
   if (!id) {
     return null;

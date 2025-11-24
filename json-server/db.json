@@ -852,6 +852,11 @@
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
       },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://i.pinimg.com/736x/fa/1d/9a/fa1d9a1132377e972514253874ad1893.jpg"
     },
     {
