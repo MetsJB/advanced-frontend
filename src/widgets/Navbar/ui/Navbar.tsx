@@ -12,6 +12,7 @@ import { getRouteArticleCreate } from '@/shared/const/router';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
   className?: string;
@@ -32,33 +33,46 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <header
-        className={classNames(cls.Navbar, {}, [className])}
-      >
-        <Text
-          theme={TextTheme.INVERTED}
-          className={cls.appName}
-          title={t('Ulbi TV App')}
-        />
-        <AppLink
-          className={cls.createBtn}
-          theme={AppLinkTheme.SECONDARY}
-          to={getRouteArticleCreate()}
-        >
-          {t('Создать статью')}
-        </AppLink>
-        <HStack gap="16" className={cls.actions}>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={
+          <header className={classNames(cls.Navbar, {}, [className])}>
+            <Text
+              theme={TextTheme.INVERTED}
+              className={cls.appName}
+              title={t('Ulbi TV App')}
+            />
+            <AppLink
+              className={cls.createBtn}
+              theme={AppLinkTheme.SECONDARY}
+              to={getRouteArticleCreate()}
+            >
+              {t('Создать статью')}
+            </AppLink>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        on={
+          <header
+            className={classNames(cls.NavbarRedesigned, {}, [
+              className,
+            ])}
+          >
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     );
   }
 
   return (
-    <header
-      className={classNames(cls.Navbar, {}, [className])}
-    >
+    <header className={classNames(cls.Navbar, {}, [className])}>
       <Button
         onClick={onShowModal}
         theme={ButtonTheme.CLEAR_INVERTED}
@@ -67,10 +81,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         {t('Войти')}
       </Button>
       {isAuthModal && (
-        <LoginModal
-          isOpen={isAuthModal}
-          onClose={onCloseModal}
-        />
+        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
       )}
     </header>
   );
