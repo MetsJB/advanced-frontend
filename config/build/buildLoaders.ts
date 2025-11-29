@@ -6,10 +6,25 @@ import { buildBabelLoader } from './loaders/buildBabelLoader';
 export function buildoadres(options: BuildOptions): webpack.RuleSetRule[] {
   const { isDev } = options;
 
-  const svgloader = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  };
+  const svgLoader = {
+        test: /\.svg$/,
+        use: [{
+            loader: '@svgr/webpack',
+            options: {
+                icon: true,
+                svgoConfig: {
+                    plugins: [
+                        {
+                            name: 'convertColors',
+                            params: {
+                                currentColor: true,
+                            }
+                        }
+                    ]
+                }
+            }
+        }],
+    };
 
   const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
   const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
@@ -36,7 +51,7 @@ export function buildoadres(options: BuildOptions): webpack.RuleSetRule[] {
     codeBabelLoader,
     tsxCodeBabelLoader,
     fileLoader,
-    svgloader,
+    svgLoader,
     // typescriptLoader
     cssLoaders,
   ];
