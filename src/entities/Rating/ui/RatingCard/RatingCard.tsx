@@ -1,23 +1,20 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
-import {
-  BrowserView,
-  MobileView,
-} from 'react-device-detect';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './RatingCard.module.scss';
-import { Card } from '@/shared/ui/Card';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
-import { StarRating } from '@/shared/ui/StarRating';
-import { Modal } from '@/shared/ui/Modal';
-import { Input } from '@/shared/ui/Input';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { StarRating } from '@/shared/ui/deprecated/StarRating';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Input } from '@/shared/ui/deprecated/Input';
 import {
   Button,
   ButtonSize,
   ButtonTheme,
-} from '@/shared/ui/Button';
-import { Drawer } from '@/shared/ui/Drawer';
+} from '@/shared/ui/deprecated/Button';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 
 interface RatingCardProps {
   className?: string;
@@ -25,10 +22,7 @@ interface RatingCardProps {
   feedbackTitle?: string;
   hasFeedback?: boolean;
   onCancel?: (starsCount: number) => void;
-  onAccept?: (
-    starsCount: number,
-    feedback?: string,
-  ) => void;
+  onAccept?: (starsCount: number, feedback?: string) => void;
   rate?: number;
 }
 
@@ -84,18 +78,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
   return (
     <Card
-      className={classNames(cls.RatingCard, {}, [
-        className,
-      ])}
+      className={classNames(cls.RatingCard, {}, [className])}
       max
       data-testid="RatingCard"
     >
       <VStack align="center" gap="8" max>
-        <Text
-          title={
-            starsCount ? t('Спасибо за оценку!') : title
-          }
-        />
+        <Text title={starsCount ? t('Спасибо за оценку!') : title} />
         <StarRating
           selectedStars={starsCount}
           size={40}
@@ -126,11 +114,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
       </BrowserView>
 
       <MobileView>
-        <Drawer
-          onClose={cancelHandle}
-          lazy
-          isOpen={isModalOpen}
-        >
+        <Drawer onClose={cancelHandle} lazy isOpen={isModalOpen}>
           <VStack gap="32">
             {modalContent}
             <Button

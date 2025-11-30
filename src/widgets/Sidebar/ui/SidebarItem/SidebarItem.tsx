@@ -3,7 +3,10 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './SidebarItem.module.scss';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import {
+  AppLink,
+  AppLinkTheme,
+} from '@/shared/ui/deprecated/AppLink';
 import { SidebarItemType } from '../../model/types/sidebar';
 import { getUserAuthData } from '@/entities/User';
 
@@ -30,9 +33,7 @@ export const SidebarItem = memo(
         })}
       >
         <item.Icon className={classNames(cls.icon)} />
-        <span className={classNames(cls.link)}>
-          {t(item.text)}
-        </span>
+        <span className={classNames(cls.link)}>{t(item.text)}</span>
       </AppLink>
     );
   },

@@ -1,23 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import { CountrySelect } from '@/entities/Country';
-import {
-  Currency,
-  CurrencySelect,
-} from '@/entities/Currency';
+import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country } from '@/shared/const/Country';
-import {
-  classNames,
-  Mods,
-} from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Input } from '@/shared/ui/Input';
-import { Loader } from '@/shared/ui/Loader';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import {
   Text,
   TextAlign,
   TextTheme,
-} from '@/shared/ui/Text';
+} from '@/shared/ui/deprecated/Text';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -99,16 +93,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
     <VStack
       gap="8"
       max
-      className={classNames(cls.ProfileCard, mods, [
-        className,
-      ])}
+      className={classNames(cls.ProfileCard, mods, [className])}
     >
       {data?.avatar && (
-        <HStack
-          justify="center"
-          max
-          className={cls.avatarWrapper}
-        >
+        <HStack justify="center" max className={cls.avatarWrapper}>
           <Avatar src={data?.avatar} />
         </HStack>
       )}

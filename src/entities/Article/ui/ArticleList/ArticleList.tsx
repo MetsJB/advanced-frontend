@@ -6,7 +6,7 @@ import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 
 interface ArticleListProps {
   className?: string;
@@ -27,53 +27,48 @@ const getSkeletons = (view: ArticleView) =>
       />
     ));
 
-export const ArticleList = memo(
-  (props: ArticleListProps) => {
-    const {
-      className,
-      articles,
-      isLoading,
-      target,
-      view = ArticleView.SMALL,
-    } = props;
-    const { t } = useTranslation();
+export const ArticleList = memo((props: ArticleListProps) => {
+  const {
+    className,
+    articles,
+    isLoading,
+    target,
+    view = ArticleView.SMALL,
+  } = props;
+  const { t } = useTranslation();
 
-    if (!isLoading && !articles.length) {
-      return (
-        <div
-          className={classNames(cls.ArticleList, {}, [
-            className,
-            cls[view],
-          ])}
-        >
-          <Text
-            size={TextSize.L}
-            title={t('Статьи не найдены')}
-          />
-        </div>
-      );
-    }
-
+  if (!isLoading && !articles.length) {
     return (
       <div
-        data-testid="ArticleList"
         className={classNames(cls.ArticleList, {}, [
           className,
           cls[view],
         ])}
       >
-        {articles.map((article) => (
-          <ArticleListItem
-            article={article}
-            view={view}
-            target={target}
-            key={article.id}
-            className={cls.card}
-          />
-        ))}
-
-        {isLoading && getSkeletons(view)}
+        <Text size={TextSize.L} title={t('Статьи не найдены')} />
       </div>
     );
-  },
-);
+  }
+
+  return (
+    <div
+      data-testid="ArticleList"
+      className={classNames(cls.ArticleList, {}, [
+        className,
+        cls[view],
+      ])}
+    >
+      {articles.map((article) => (
+        <ArticleListItem
+          article={article}
+          view={view}
+          target={target}
+          key={article.id}
+          className={cls.card}
+        />
+      ))}
+
+      {isLoading && getSkeletons(view)}
+    </div>
+  );
+});

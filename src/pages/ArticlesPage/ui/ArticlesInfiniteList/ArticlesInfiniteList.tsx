@@ -8,7 +8,7 @@ import {
   getArticlePageView,
 } from '../../model/selectors/articlePageSelectors';
 import { getArticles } from '../../model/slices/articlesPageSlice';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 interface ArticlesInfiniteListProps {
   className?: string;
@@ -24,9 +24,7 @@ export const ArticlesInfiniteList = memo(
     const articles = useSelector(getArticles.selectAll);
 
     if (error) {
-      return (
-        <Text text={t('Ошибка при загрузке статей')} />
-      );
+      return <Text text={t('Ошибка при загрузке статей')} />;
     }
 
     return (

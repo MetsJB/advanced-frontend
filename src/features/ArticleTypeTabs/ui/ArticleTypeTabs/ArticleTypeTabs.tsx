@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { TabItem, Tabs } from '@/shared/ui/Tabs';
+import { TabItem, Tabs } from '@/shared/ui/deprecated/Tabs';
 import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
@@ -10,47 +10,45 @@ interface ArticleTypeTabsProps {
   onChangeType: (type: ArticleType) => void;
 }
 
-export const ArticleTypeTabs = memo(
-  (props: ArticleTypeTabsProps) => {
-    const { className, value, onChangeType } = props;
-    const { t } = useTranslation();
+export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
+  const { className, value, onChangeType } = props;
+  const { t } = useTranslation();
 
-    const typeTabs = useMemo<TabItem[]>(
-      () => [
-        {
-          value: ArticleType.ALL,
-          content: t('Все статьи'),
-        },
-        {
-          value: ArticleType.IT,
-          content: t('Айти'),
-        },
-        {
-          value: ArticleType.ECONOMICS,
-          content: t('Экономика'),
-        },
-        {
-          value: ArticleType.SCIENCE,
-          content: t('Наука'),
-        },
-      ],
-      [t],
-    );
-
-    const onTabClick = useCallback(
-      (tab: TabItem) => {
-        onChangeType(tab.value as ArticleType);
+  const typeTabs = useMemo<TabItem[]>(
+    () => [
+      {
+        value: ArticleType.ALL,
+        content: t('Все статьи'),
       },
-      [onChangeType],
-    );
+      {
+        value: ArticleType.IT,
+        content: t('Айти'),
+      },
+      {
+        value: ArticleType.ECONOMICS,
+        content: t('Экономика'),
+      },
+      {
+        value: ArticleType.SCIENCE,
+        content: t('Наука'),
+      },
+    ],
+    [t],
+  );
 
-    return (
-      <Tabs
-        onTabClick={onTabClick}
-        tabs={typeTabs}
-        value={value}
-        className={classNames('', {}, [className])}
-      />
-    );
-  },
-);
+  const onTabClick = useCallback(
+    (tab: TabItem) => {
+      onChangeType(tab.value as ArticleType);
+    },
+    [onChangeType],
+  );
+
+  return (
+    <Tabs
+      onTabClick={onTabClick}
+      tabs={typeTabs}
+      value={value}
+      className={classNames('', {}, [className])}
+    />
+  );
+});

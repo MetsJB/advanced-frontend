@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { TextTheme, Text } from '@/shared/ui/Text';
+import { TextTheme, Text } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -23,7 +23,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
@@ -44,9 +44,7 @@ export const EditableProfileCard = memo(
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
-    const validateErrors = useSelector(
-      getProfileValidateErrors,
-    );
+    const validateErrors = useSelector(getProfileValidateErrors);
 
     useInitialEffect(() => {
       if (id) {
@@ -55,21 +53,15 @@ export const EditableProfileCard = memo(
     });
 
     const validateErrorTranslates = {
-      [ValidateProfileError.SERVER_ERROR]: t(
-        'Серверная ошибка',
-      ),
-      [ValidateProfileError.INCORRECT_AGE]: t(
-        'Неккоректный возраст',
-      ),
+      [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка'),
+      [ValidateProfileError.INCORRECT_AGE]: t('Неккоректный возраст'),
       [ValidateProfileError.INCORRECT_COUNTRY]: t(
         'Некорректный регион',
       ),
       [ValidateProfileError.INCORRECT_USER_DATA]: t(
         'Имя и фамилия обязательны',
       ),
-      [ValidateProfileError.NO_DATA]: t(
-        'Данные не указаны',
-      ),
+      [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
     };
 
     const onChangeFirstname = useCallback(
@@ -140,9 +132,7 @@ export const EditableProfileCard = memo(
 
     const onChangeCurrency = useCallback(
       (currency: Currency) => {
-        dispatch(
-          profileActions.updateProfile({ currency }),
-        );
+        dispatch(profileActions.updateProfile({ currency }));
       },
       [dispatch],
     );
@@ -163,16 +153,14 @@ export const EditableProfileCard = memo(
         >
           <EditableProfileCardHeader />
           {validateErrors?.length &&
-            validateErrors.map(
-              (error: ValidateProfileError) => (
-                <Text
-                  key={error}
-                  theme={TextTheme.ERROR}
-                  text={validateErrorTranslates[error]}
-                  data-testid="EditableProfileCard.Error"
-                />
-              ),
-            )}
+            validateErrors.map((error: ValidateProfileError) => (
+              <Text
+                key={error}
+                theme={TextTheme.ERROR}
+                text={validateErrorTranslates[error]}
+                data-testid="EditableProfileCard.Error"
+              />
+            ))}
           <ProfileCard
             onChangeFirstname={onChangeFirstname}
             onChangeLastname={onChangeLastname}
