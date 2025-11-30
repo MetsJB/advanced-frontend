@@ -4,11 +4,14 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './SidebarItem.module.scss';
 import {
-  AppLink,
+  AppLink as AppLinkDeprecated,
   AppLinkTheme,
 } from '@/shared/ui/deprecated/AppLink';
 import { SidebarItemType } from '../../model/types/sidebar';
 import { getUserAuthData } from '@/entities/User';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface SidebarItemProps {
   item: SidebarItemType;
@@ -25,16 +28,37 @@ export const SidebarItem = memo(
     }
 
     return (
-      <AppLink
-        theme={AppLinkTheme.SECONDARY}
-        to={item.path}
-        className={classNames(cls.item, {
-          [cls.collapsed]: collapsed,
-        })}
-      >
-        <item.Icon className={classNames(cls.icon)} />
-        <span className={classNames(cls.link)}>{t(item.text)}</span>
-      </AppLink>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={
+          <AppLinkDeprecated
+            theme={AppLinkTheme.SECONDARY}
+            to={item.path}
+            className={classNames(cls.item, {
+              [cls.collapsed]: collapsed,
+            })}
+          >
+            <item.Icon className={classNames(cls.icon)} />
+            <span className={classNames(cls.link)}>
+              {t(item.text)}
+            </span>
+            
+          </AppLinkDeprecated>
+        }
+        on={<AppLink
+            variant='primary'
+            to={item.path}
+            className={classNames(cls.itemRedesigned, {
+              [cls.collapsedRedesigned]: collapsed,
+            })}
+            activeClassName={cls.active}
+          >
+            <Icon Svg={item.Icon}  />
+            <span className={classNames(cls.link)}>
+              {t(item.text)}
+            </span>
+          </AppLink>}
+      />
     );
   },
 );
