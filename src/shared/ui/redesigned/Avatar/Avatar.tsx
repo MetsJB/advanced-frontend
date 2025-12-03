@@ -11,16 +11,11 @@ interface AvatarProps {
   src?: string;
   size?: number;
   alt?: string;
-  fallbackInverted?: boolean;
 }
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
+
 export const Avatar = ({
   alt,
   className,
-  fallbackInverted,
   src,
   size = 100,
 }: AvatarProps) => {
@@ -35,7 +30,6 @@ export const Avatar = ({
 
   const errorFallback = (
     <Icon
-      inverted={fallbackInverted}
       Svg={UserIcon}
       width={size}
       height={size}

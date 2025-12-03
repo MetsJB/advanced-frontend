@@ -24,10 +24,7 @@ interface ListBoxProps {
   direction?: DropDownDirection;
   label?: string;
 }
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
+
 export function ListBox(props: ListBoxProps) {
   const {
     readonly,
@@ -40,7 +37,7 @@ export function ListBox(props: ListBoxProps) {
     label,
   } = props;
 
-  const optionsClasses = [mapDirectionClass[direction]];
+  const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
 
   return (
     <HStack gap="4">

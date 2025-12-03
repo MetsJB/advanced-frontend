@@ -1,16 +1,11 @@
-import {
-  memo,
-  ReactNode,
-  useCallback,
-  useEffect,
-} from 'react';
+import { memo, ReactNode, useCallback, useEffect } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   AnimationProvider,
   useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
-import { Overlay } from '../Overlay/Overlay';
-import { Portal } from '../Portal/Portal';
+import { Overlay } from '../../redesigned/Overlay/Overlay';
+import { Portal } from '../../redesigned/Portal/Portal';
 import cls from './Drawer.module.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
@@ -29,8 +24,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const [{ y }, api] = Spring.useSpring(() => ({
     y: height,
   }));
-  const { className, children, isOpen, onClose, lazy } =
-    props;
+  const { className, children, isOpen, onClose, lazy } = props;
   // const { close, isMounted, isClosing } = useModal({
   //   animationDelay: 300,
   //   isOpen,
@@ -94,9 +88,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     return null;
   }
 
-  const display = y.to((py) =>
-    py < height ? 'block' : 'none',
-  );
+  const display = y.to((py) => (py < height ? 'block' : 'none'));
 
   return (
     <Portal>
