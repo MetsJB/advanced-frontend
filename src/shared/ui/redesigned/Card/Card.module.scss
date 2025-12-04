@@ -1,7 +1,15 @@
 .Card {
   padding: 24px;
+}
+
+.normal {
   border-radius: 12px;
-  // background: var(--card-bg);
+  
+}
+
+.round {
+  border-radius: 40px;
+
 }
 
 .withoutPaddings {

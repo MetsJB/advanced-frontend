@@ -1,17 +1,10 @@
- import {
-  ButtonHTMLAttributes,
-  memo,
-  ReactNode,
-} from 'react';
-import {
-  classNames,
-  Mods,
-} from '@/shared/lib/classNames/classNames';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
-export type ButtonVariant = 'clear'|'outline'
+export type ButtonVariant = 'clear' | 'outline' | 'filled';
 
-export type ButtonSize = 'l'|'xl'|'m' 
+export type ButtonSize = 'l' | 'xl' | 'm';
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -48,7 +41,7 @@ export const Button = memo((props: ButtonProps) => {
       className={classNames(cls.Button, mods, [
         className,
         cls[variant],
-        cls[size]
+        cls[size],
       ])}
       disabled={disabled}
       {...otherProps}
@@ -57,4 +50,3 @@ export const Button = memo((props: ButtonProps) => {
     </button>
   );
 });
-
