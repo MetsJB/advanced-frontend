@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
-import { Avatar as AvatarDeprecated} from '@/shared/ui/deprecated/Avatar';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import {
   getUserAuthData,
   isUserAdmin,
@@ -13,6 +13,7 @@ import {
 import {
   getRouteAdmin,
   getRouteProfile,
+  getRouteSettings,
 } from '@/shared/const/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
@@ -50,6 +51,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
       : []),
 
     {
+      content: t('Настройки'),
+      href: getRouteSettings(),
+    },
+    {
       content: t('Профиль'),
       href: getRouteProfile(authData.id),
     },
@@ -66,12 +71,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         <Dropdown
           className={classNames('', {}, [className])}
           direction="bottom left"
-          trigger={
-            <Avatar
-              size={40}
-              src={authData.avatar}
-            />
-          }
+          trigger={<Avatar size={40} src={authData.avatar} />}
           items={items}
         />
       }
