@@ -2,8 +2,11 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/consts/articleConsts';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface ArticleListItemSkeletonProps {
   className?: string;
@@ -13,6 +16,18 @@ interface ArticleListItemSkeletonProps {
 export const ArticleListItemSkeleton = memo(
   (props: ArticleListItemSkeletonProps) => {
     const { className, view } = props;
+
+    const Skeleton = toggleFeatures({
+      name: 'isAppRedesigned',
+      off: () => SkeletonDeprecated,
+      on: () => SkeletonRedesigned,
+    });
+
+    const Card = toggleFeatures({
+      name: 'isAppRedesigned',
+      off: () => CardDeprecated,
+      on: () => CardRedesigned,
+    });
 
     if (view === ArticleView.BIG) {
       return (

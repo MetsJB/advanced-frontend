@@ -16,7 +16,7 @@
 }
 
 .withAddon {
-    padding: 0 16px;
+  padding: 0 16px;
 }
 
 .addonLeft,
@@ -33,6 +33,16 @@
   border: none;
   outline: none;
   border-radius: 34px;
+}
+
+.outline {
+  background: none;
+  border: 1px solid var(--icon-redesigned);
+  border-radius: 34px;
+
+  &:hover {
+    border: 1px solid var(--accent-redesigned);
+  }
 }
 
 .clear {
