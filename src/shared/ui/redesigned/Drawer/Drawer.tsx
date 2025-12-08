@@ -8,6 +8,7 @@ import { Overlay } from '../../redesigned/Overlay/Overlay';
 import { Portal } from '../../redesigned/Portal/Portal';
 import cls from './Drawer.module.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
   className?: string;
@@ -79,11 +80,6 @@ export const DrawerContent = memo((props: DrawerProps) => {
     },
   );
 
-  // const mods: Mods = {
-  //   [cls.opened]: isOpen,
-  //   [cls.isClosing]: isClosing,
-  // };
-
   if (!isOpen) {
     return null;
   }
@@ -91,12 +87,17 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const display = y.to((py) => (py < height ? 'block' : 'none'));
 
   return (
-    <Portal>
+    <Portal element={document.getElementById('app') ?? document.body}>
       <div
         className={classNames(cls.Drawer, {}, [
           className,
           theme,
           'app_drawer',
+          toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => cls.drawerNew,
+            off: () => cls.drawerOld,
+          }),
         ])}
       >
         <Overlay onClick={close} />
