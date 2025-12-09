@@ -8,6 +8,7 @@ import {
 
 const article: Article = {
   id: '1',
+  user: { id: '1', username: 'test' },
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
@@ -79,9 +80,7 @@ const article: Article = {
 describe('fetchArticleByID.test', () => {
   test('success', async () => {
     const thunk = new TestAsyncThunk(fetchArticleByID);
-    thunk.api.get.mockReturnValue(
-      Promise.resolve({ data: article }),
-    );
+    thunk.api.get.mockReturnValue(Promise.resolve({ data: article }));
     const result = await thunk.callThunk('1');
 
     expect(thunk.api.get).toHaveBeenCalled();

@@ -10,5 +10,7 @@
   "Вы ввели неверный логин или пароль": "You have entered an incorrect login or password.",
   "Войти": "Login",
   "Форма авторизации": "Authorization form",
-  "Введите": "Enter"
+  "Введите": "Enter",
+  "просмотров_one": "{{count}} view",
+  "просмотров_other": "{{count}} views"
 }

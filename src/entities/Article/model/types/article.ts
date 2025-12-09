@@ -30,7 +30,7 @@ export type ArticleBlock =
 
 export interface Article {
   id: string;
-  user?: User;
+  user: User;
   title: string;
   subtitle: string;
   img: string;

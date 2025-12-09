@@ -89,7 +89,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   let content;
 
-  if (isLodaing) {
+  if (isLodaing ) {
     content = (
       <>
         <Skeleton
