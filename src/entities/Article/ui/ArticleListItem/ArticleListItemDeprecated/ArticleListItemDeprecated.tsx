@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-    ArticleBlockType,
-    ArticleView,
+  ArticleBlockType,
+  ArticleView,
 } from '../../../model/consts/articleConsts';
 import { ArticleTextBlock } from '../../../model/types/article';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
@@ -12,7 +12,7 @@ import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Card } from '@/shared/ui/deprecated/Card';
-import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';

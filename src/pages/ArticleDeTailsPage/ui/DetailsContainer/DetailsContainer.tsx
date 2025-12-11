@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleDetails } from '@/entities/Article';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -11,7 +10,6 @@ interface DetailsContainerProps {
 export const DetailsContainer = memo(
   (props: DetailsContainerProps) => {
     const { className } = props;
-    const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
 
     return (
