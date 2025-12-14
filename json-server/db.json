@@ -630,6 +630,18 @@
       "userId": "1",
       "text": "Надя самая лучшая",
       "id": "e8PG1gK"
+    },
+    {
+      "articleId": "19",
+      "userId": "1",
+      "text": "вот это новый интерфейс!",
+      "id": "a3H8Yc2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quisquam pariatur voluptatum ullam voluptates facilis facere odit veniam cupiditate soluta quo eveniet excepturi quam deleniti non reiciendis, nesciunt in placeat?",
+      "id": "GQP_e5s"
     }
   ],
   "users": [
@@ -646,7 +658,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlePageWasOpened": true
@@ -787,6 +799,12 @@
       "articleId": "9",
       "rate": 2,
       "id": "F9p7I7T"
+    },
+    {
+      "userId": "1",
+      "articleId": "19",
+      "rate": 4,
+      "id": "K4_HmFa"
     }
   ],
   "profile-ratings": [

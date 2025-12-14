@@ -2,7 +2,9 @@ import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import StarIcon from '@/shared/assets/icons/star.svg';
 import cls from './StarRating.module.scss';
+import { Icon as IconDeprecated } from '../Icon/Icon';
 import { Icon } from '../../redesigned/Icon/Icon';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 
 interface StarRatingProps {
   className?: string;
@@ -45,11 +47,15 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-    <div className={classNames(cls.StarRating, {}, [className])}>
-      {stars.map((starNumber) => (
-        <Icon
-          Svg={StarIcon}
-          className={classNames(
+    <div className={classNames(toggleFeatures({
+     name: 'isAppRedesigned',
+     on: () => cls.StarRatingRedesigned,
+     off: () => cls.StarRating,
+    }), {}, [className])}>
+      {stars.map((starNumber) => {
+        const commonProps = {
+          Svg: StarIcon,
+          className: classNames(
             cls.starIcon,
             {
               [cls.isSelected]: isSelected,
@@ -59,17 +65,25 @@ export const StarRating = memo((props: StarRatingProps) => {
                 ? cls.hovered
                 : cls.normal,
             ],
-          )}
-          key={starNumber}
-          width={size}
-          height={size}
-          onMouseLeave={onLeave}
-          onMouseEnter={onHover(starNumber)}
-          onClick={onClick(starNumber)}
-          data-testid={`StarRating.${starNumber}`}
-          data-selected={currentStarsCount >= starNumber}
-        />
-      ))}
+          ),
+          key: starNumber,
+          width: size,
+          height: size,
+          onMouseLeave: onLeave,
+          onMouseEnter: onHover(starNumber),
+          onClick: onClick(starNumber),
+          'data-testid': `StarRating.${starNumber}`,
+          'data-selected': currentStarsCount >= starNumber,
+        };
+
+        return (
+          <ToggleFeatures
+            feature="isAppRedesigned"
+            on={<Icon clickable={!isSelected} {...commonProps} />}
+            off={<IconDeprecated {...commonProps} />}
+          />
+        );
+      })}
     </div>
   );
 });

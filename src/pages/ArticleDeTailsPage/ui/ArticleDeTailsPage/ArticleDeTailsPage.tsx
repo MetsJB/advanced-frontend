@@ -53,6 +53,7 @@ const ArticleDeTailsPage = ({
               >
                 <VStack gap="16" max>
                   <DetailsContainer />
+                  <ArticleRating articleId={id} />
                   <ArticleRecommendationsList />
                   <ArticleDeTailsComments id={id} />
                 </VStack>
