@@ -47,7 +47,11 @@ export const Tabs = memo((props: TabsProps) => {
             data-testid={`Tabs.${tab.value}`}
             variant={isSelected ? 'light' : 'normal'}
             key={tab.value}
-            className={classNames(cls.tab, {[cls.selected]: isSelected}, [])}
+            className={classNames(
+              cls.tab,
+              { [cls.selected]: isSelected },
+              [],
+            )}
             onClick={clickHandle(tab)}
             border="round"
           >

@@ -16,7 +16,7 @@ export const DetailsContainer = memo(
       <Card
         fullHeight
         max
-        border="round"
+        border="partial"
         padding="24"
         className={className}
       >

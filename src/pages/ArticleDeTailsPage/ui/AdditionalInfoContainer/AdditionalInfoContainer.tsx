@@ -12,7 +12,7 @@ export const AdditionalInfoContainer = memo(() => {
   const { t } = useTranslation();
   const article = useSelector(getArticleDetailsData);
   const navigate = useNavigate();
-  
+
   const onEditArticle = useCallback(() => {
     if (article) {
       navigate(getRouteArticleEdit(article.id));
@@ -24,9 +24,9 @@ export const AdditionalInfoContainer = memo(() => {
   }
 
   return (
-    <Card padding="24" border="round" className={cls.card}>
+    <Card padding="24" border="partial" className={cls.card}>
       <ArticleAdditionalInfo
-      onEdit={onEditArticle}
+        onEdit={onEditArticle}
         author={article.user}
         createdAt={article.createdAt}
         views={article.views}
