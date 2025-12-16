@@ -51,7 +51,6 @@ export const UiDesignSwitcher = memo(
           }),
         ).unwrap();
         setIsLoading(false);
-        forceUpdate()
       }
     };
     return (
