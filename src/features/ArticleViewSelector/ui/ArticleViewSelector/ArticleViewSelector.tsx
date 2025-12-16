@@ -13,7 +13,7 @@ import {
   Button as ButtonDeprecated,
   ButtonTheme,
 } from '@/shared/ui/deprecated/Button';
-import { Icon as IconDeprecated } from '@/shared/ui/redesigned/Icon';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import cls from './ArticleViewSelector.module.scss';
 import { Card } from '@/shared/ui/redesigned/Card';

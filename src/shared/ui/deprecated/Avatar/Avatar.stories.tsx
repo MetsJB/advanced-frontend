@@ -6,7 +6,7 @@ import {
 import { Avatar } from './Avatar';
 // eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
-import AvatarImg from '../../assets/tests/storybook.jpg';
+import AvatarImg from '../../../assets/tests/storybook.jpg';
 
 export default {
   title: 'shared/Avatar',

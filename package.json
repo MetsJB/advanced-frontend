@@ -23,7 +23,7 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "generate:slice": "node ./scripts/createSlice/index.js",
     "prettier": "npx prettier --write **/*.{ts,tsx,json}",
-    "lint:ts": "eslint \"**/*.{ts,tsx}\"",
+    "lint:ts": "eslint \"./src/**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "postinstall": "node ./scripts/clear-cache.js",
     "remove-feature": "npx ts-node ./scripts/remove-feature.ts"

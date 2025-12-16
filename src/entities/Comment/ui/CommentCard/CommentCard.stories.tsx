@@ -1,10 +1,8 @@
-import {
-  ComponentStory,
-  ComponentMeta,
-} from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CommentCard } from './CommentCard';
 // eslint-disable-next-line johannesburd-plugin/layer-imports
 import '@/app/styles/index.scss';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
   title: 'entities/comment/CommentCard',
@@ -14,12 +12,11 @@ export default {
   },
 } as ComponentMeta<typeof CommentCard>;
 
-const Template: ComponentStory<typeof CommentCard> = (
-  args,
-) => <CommentCard {...args} />;
+const Template: ComponentStory<typeof CommentCard> = (args) => (
+  <CommentCard {...args} />
+);
 
-export const Normal = Template.bind({});
-Normal.args = {
+const normalArgs = {
   comment: {
     id: '1',
     text: 'text comment',
@@ -29,6 +26,16 @@ Normal.args = {
     },
   },
 };
+
+export const Normal = Template.bind({});
+Normal.args = normalArgs;
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = normalArgs;
+NormalRedesigned.decorators = [
+  NewDesignDecorator
+];
+
 export const Loading = Template.bind({});
 Loading.args = {
   isLoading: true,
