@@ -4,7 +4,10 @@ import StarIcon from '@/shared/assets/icons/star.svg';
 import cls from './StarRating.module.scss';
 import { Icon as IconDeprecated } from '../Icon/Icon';
 import { Icon } from '../../redesigned/Icon/Icon';
-import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import {
+  ToggleFeatures,
+  toggleFeatures,
+} from '@/shared/lib/features';
 
 interface StarRatingProps {
   className?: string;
@@ -47,11 +50,17 @@ export const StarRating = memo((props: StarRatingProps) => {
   };
 
   return (
-    <div className={classNames(toggleFeatures({
-     name: 'isAppRedesigned',
-     on: () => cls.StarRatingRedesigned,
-     off: () => cls.StarRating,
-    }), {}, [className])}>
+    <div
+      className={classNames(
+        toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => cls.StarRatingRedesigned,
+          off: () => cls.StarRating,
+        }),
+        {},
+        [className],
+      )}
+    >
       {stars.map((starNumber) => {
         const commonProps = {
           Svg: StarIcon,
@@ -78,6 +87,7 @@ export const StarRating = memo((props: StarRatingProps) => {
 
         return (
           <ToggleFeatures
+            key={starNumber}
             feature="isAppRedesigned"
             on={<Icon clickable={!isSelected} {...commonProps} />}
             off={<IconDeprecated {...commonProps} />}
