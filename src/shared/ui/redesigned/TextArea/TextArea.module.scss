@@ -1,0 +1,39 @@
+.textArea {
+  outline: none;
+  width: 100%;
+  color: var(--text-redesigned);
+  background: none;
+  border-radius: 24px;
+  padding: 8px 16px;
+  border: 2px solid var(--icon-redesigned);
+  overflow: hidden;
+  min-height: 150px;
+  max-height: 350px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar-track {
+    background: none;
+    margin: 15px 0;
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::placeholder {
+    color: var(--hint-redesigned);
+  }
+}
+
+.notResize {
+  resize: none;
+}
+
+.focused {
+  border: 2px solid var(--accent-redesigned);
+}
+
+.readonly {
+  opacity: 0.7;
+  cursor: default;
+  pointer-events: none;
+}

@@ -49,12 +49,12 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
   }, [items, value]);
 
   return (
-    <HStack gap="4">
-      {label && <span>{`${label}>`}</span>}
+    <HStack  gap="4">
+      {label && <span style={{whiteSpace: 'nowrap'}} >{`${label}>`}</span>}
       <HListbox
         disabled={readonly}
         as="div"
-        className={classNames(cls.ListBox, {}, [
+        className={classNames(cls.ListBox, {[cls.readonly]: readonly}, [
           className,
           popupCls.popup,
         ])}

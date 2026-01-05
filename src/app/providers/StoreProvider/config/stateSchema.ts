@@ -15,6 +15,7 @@ import { ProfileSchema } from '@/features/editableProfileCard';
 import { UIShema } from '@/features/UI';
 import { ArticleDetailsPageSchema } from '@/pages/ArticleDeTailsPage';
 import { ArticlePageSchema } from '@/pages/ArticlesPage';
+import { ArticleContorlPanelSchema } from '@/features/ArticleContorlPanel';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateScheme {
@@ -30,14 +31,12 @@ export interface StateScheme {
   addCommentForm?: addCommentFormSchema;
   articlePage?: ArticlePageSchema;
   articleDetailsPage?: ArticleDetailsPageSchema;
+  articleContorlPanel?: ArticleContorlPanelSchema;
 }
 
 export type StateSchemaKey = keyof StateScheme;
 
-export type MountedReducers = OptionalRecord<
-  StateSchemaKey,
-  boolean
->;
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateScheme>;

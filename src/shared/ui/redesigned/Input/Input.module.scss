@@ -54,4 +54,9 @@
 
 .readonly {
   opacity: 0.7;
+
+  .input {
+    cursor: default;
+    pointer-events: none;
+  }
 }
